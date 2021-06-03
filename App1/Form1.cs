@@ -50,13 +50,41 @@ namespace App1
                 return;
             }
 
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string sql;
 
-            string sql = "UPDATE " + currentDataTableName + " SET " + dataGridView1.Columns[e.ColumnIndex].HeaderText +
+            if (string.IsNullOrWhiteSpace(dataGridView1[0, e.RowIndex].Value.ToString()))
+            {
+                List<string> columnsNames = new List<string>();
+                List<string> newData = new List<string>();
+
+                foreach (DataGridViewCell cell in dataGridView1.Rows[e.RowIndex].Cells)
+                {
+                    if (string.IsNullOrWhiteSpace(cell.Value.ToString()) && cell.ColumnIndex != 0)
+                    {
+                        statusLabel.Text = "Null value in " + dataGridView1.Columns[cell.ColumnIndex].HeaderText;
+                        return;
+                    }
+
+                    if (cell.ColumnIndex != 0)
+                    {
+                        columnsNames.Add(dataGridView1.Columns[cell.ColumnIndex].HeaderText);
+                        newData.Add(cell.Value.ToString());
+                    }
+                }
+
+                sql = $"INSERT INTO {currentDataTableName} ({string.Join(", ", columnsNames)})" +
+                $" VALUES ('{string.Join("', '", newData)}')";
+
+                ExecuteSQLCommand(sql);
+
+                return;
+            }
+
+            sql = "UPDATE " + currentDataTableName + " SET " + dataGridView1.Columns[e.ColumnIndex].HeaderText +
                     " = '" + dataGridView1[e.ColumnIndex, e.RowIndex].Value + "' WHERE "
                     + dataGridView1.Columns[0].HeaderText + " = " + dataGridView1[0, e.RowIndex].Value + ";"; ;
 
-            executeSQLCommand(sql);
+            ExecuteSQLCommand(sql);
         }
 
         private void LoadCurrentTable()
@@ -93,6 +121,7 @@ namespace App1
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             string sql = "SELECT * FROM " + currentDataTableName;
+            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -108,26 +137,26 @@ namespace App1
             }
         }
 
-        private void tablesList_SelectedIndexChanged(object sender, EventArgs e)
+        private void TablesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentDataTableName = tablesList.SelectedItem.ToString();
 
             LoadCurrentTable();
         }
 
-        private void deleteRow_Click(object sender, EventArgs e)
+        private void DeleteRow_Click(object sender, EventArgs e)
         {
             statusLabel.Text = dataGridView1[0, dataGridView1.SelectedCells[0].RowIndex].Value.ToString();
 
             string sql = "DELETE FROM " + currentDataTableName +
                 " WHERE " + dataGridView1.Columns[0].HeaderText + "='" + dataGridView1[0, dataGridView1.SelectedCells[0].RowIndex].Value.ToString() + "';";
 
-            executeSQLCommand(sql);
+            ExecuteSQLCommand(sql);
 
             statusLabel.Text = sql;
         }
 
-        private void executeSQLCommand(string sql)
+        private void ExecuteSQLCommand(string sql)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
@@ -136,13 +165,18 @@ namespace App1
                 connection.Open();
 
                 SqlCommand command = new SqlCommand(sql, connection);
-
+                
                 int modifedRowsNumber = command.ExecuteNonQuery();
 
                 UpdateDataGridView();
 
                 statusLabel.Text = sql;
             }
+        }
+
+        private void AddRowToolboxButton_Click(object sender, EventArgs e)
+        {
+            currentDataTable.Rows.Add(currentDataTable.NewRow());
         }
     }
 }

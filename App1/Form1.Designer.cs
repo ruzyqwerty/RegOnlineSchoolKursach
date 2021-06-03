@@ -35,7 +35,8 @@ namespace App1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tablesList = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.deleteRow = new System.Windows.Forms.ToolStripButton();
+            this.deleteRowToolboxButton = new System.Windows.Forms.ToolStripButton();
+            this.addRowToolboxButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +63,6 @@ namespace App1
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -78,31 +77,41 @@ namespace App1
             // tablesList
             // 
             this.tablesList.FormattingEnabled = true;
-            this.tablesList.Location = new System.Drawing.Point(15, 28);
+            this.tablesList.Location = new System.Drawing.Point(15, 40);
             this.tablesList.Name = "tablesList";
             this.tablesList.Size = new System.Drawing.Size(208, 24);
             this.tablesList.TabIndex = 3;
-            this.tablesList.SelectedIndexChanged += new System.EventHandler(this.tablesList_SelectedIndexChanged);
+            this.tablesList.SelectedIndexChanged += new System.EventHandler(this.TablesList_SelectedIndexChanged);
             // 
             // toolStrip1
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.deleteRow});
+            this.addRowToolboxButton,
+            this.deleteRowToolboxButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1067, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1067, 27);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // deleteRow
+            // deleteRowToolboxButton
             // 
-            this.deleteRow.Image = ((System.Drawing.Image)(resources.GetObject("deleteRow.Image")));
-            this.deleteRow.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteRow.Name = "deleteRow";
-            this.deleteRow.Size = new System.Drawing.Size(104, 28);
-            this.deleteRow.Text = "delete row";
-            this.deleteRow.Click += new System.EventHandler(this.deleteRow_Click);
+            this.deleteRowToolboxButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteRowToolboxButton.Image")));
+            this.deleteRowToolboxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteRowToolboxButton.Name = "deleteRowToolboxButton";
+            this.deleteRowToolboxButton.Size = new System.Drawing.Size(104, 24);
+            this.deleteRowToolboxButton.Text = "delete row";
+            this.deleteRowToolboxButton.Click += new System.EventHandler(this.DeleteRow_Click);
+            // 
+            // addRowToolboxButton
+            // 
+            this.addRowToolboxButton.Image = ((System.Drawing.Image)(resources.GetObject("addRowToolboxButton.Image")));
+            this.addRowToolboxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addRowToolboxButton.Name = "addRowToolboxButton";
+            this.addRowToolboxButton.Size = new System.Drawing.Size(88, 24);
+            this.addRowToolboxButton.Text = "add row";
+            this.addRowToolboxButton.Click += new System.EventHandler(this.AddRowToolboxButton_Click);
             // 
             // Form1
             // 
@@ -133,7 +142,8 @@ namespace App1
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox tablesList;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton deleteRow;
+        private System.Windows.Forms.ToolStripButton deleteRowToolboxButton;
+        private System.Windows.Forms.ToolStripButton addRowToolboxButton;
     }
 }
 

@@ -4,11 +4,28 @@
     <projectFile>App1/App1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01f40a4b-7239-4890-bc41-610fcb27b7d2" name="Default Changelist" comment="" />
+    <list default="true" id="01f40a4b-7239-4890-bc41-610fcb27b7d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.App1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.App1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/App1/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/App1/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App1/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App1/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/App1/Form1.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/bin/Debug/App1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/App1/bin/Debug/App1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/bin/Debug/App1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/App1/bin/Debug/App1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/obj/Debug/App1.Form1.resources" beforeDir="false" afterPath="$PROJECT_DIR$/App1/obj/Debug/App1.Form1.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/obj/Debug/App1.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/App1/obj/Debug/App1.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/obj/Debug/App1.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/App1/obj/Debug/App1.csproj.GenerateResource.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/obj/Debug/App1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/App1/obj/Debug/App1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/obj/Debug/App1.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/App1/obj/Debug/App1.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/App1/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -16,6 +33,7 @@
     </changedPaths>
   </component>
   <component name="ProjectId" id="1tG1vLNvn1LUQLCZln0VVk9DWJR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -58,6 +76,7 @@
       <workItem from="1622382986488" duration="411000" />
       <workItem from="1622457509355" duration="8000" />
       <workItem from="1622459374677" duration="85000" />
+      <workItem from="1622700189337" duration="4000" />
     </task>
     <servers />
   </component>
@@ -66,6 +85,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
