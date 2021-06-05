@@ -177,6 +177,8 @@ namespace App1
         private void AddRowToolboxButton_Click(object sender, EventArgs e)
         {
             currentDataTable.Rows.Add(currentDataTable.NewRow());
+
+
         }
     }
 }
