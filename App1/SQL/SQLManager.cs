@@ -39,6 +39,52 @@ namespace App1.SQL
             }
         }
 
+        public virtual decimal GetMoneyValue(string sql, int columnIndex)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                decimal data = 1;
+
+                while (reader.Read())
+                {
+                    data = reader.GetDecimal(columnIndex);
+                }
+
+                reader.Close();
+
+                return data;
+            }
+        }
+
+        public virtual int GetIntValue(string sql, int columnIndex)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                int data = -1;
+
+                while (reader.Read())
+                {
+                    data = reader.GetInt32(columnIndex);
+                }
+
+                reader.Close();
+
+                return data;
+            }
+        }
+
         public virtual void ExecuteSQLCommand(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

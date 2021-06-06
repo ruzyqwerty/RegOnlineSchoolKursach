@@ -39,9 +39,16 @@ namespace App1.Forms
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dogovorTable = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kursTable)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dogovorTable)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -54,6 +61,7 @@ namespace App1.Forms
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(800, 450);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -94,6 +102,7 @@ namespace App1.Forms
             this.kursTable.Name = "kursTable";
             this.kursTable.RowHeadersWidth = 51;
             this.kursTable.RowTemplate.Height = 24;
+            this.kursTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.kursTable.Size = new System.Drawing.Size(776, 366);
             this.kursTable.TabIndex = 0;
             // 
@@ -134,6 +143,7 @@ namespace App1.Forms
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dogovorTable);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -142,18 +152,67 @@ namespace App1.Forms
             this.tabPage2.Text = "Договоры";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dogovorTable
+            // 
+            this.dogovorTable.AllowUserToAddRows = false;
+            this.dogovorTable.AllowUserToDeleteRows = false;
+            this.dogovorTable.AllowUserToOrderColumns = true;
+            this.dogovorTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dogovorTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9});
+            this.dogovorTable.Location = new System.Drawing.Point(8, 6);
+            this.dogovorTable.Name = "dogovorTable";
+            this.dogovorTable.RowHeadersWidth = 51;
+            this.dogovorTable.RowTemplate.Height = 24;
+            this.dogovorTable.Size = new System.Drawing.Size(776, 398);
+            this.dogovorTable.TabIndex = 0;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Название курса";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Организация";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Цена";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Дата оформления";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ClientForm";
             this.Text = "ClientForm";
             this.Load += new System.EventHandler(this.ClientForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.kursTable)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dogovorTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -170,5 +229,10 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button oformitDogovor;
+        private System.Windows.Forms.DataGridView dogovorTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }
