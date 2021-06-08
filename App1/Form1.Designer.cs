@@ -35,8 +35,8 @@ namespace App1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tablesList = new System.Windows.Forms.ComboBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.deleteRowToolboxButton = new System.Windows.Forms.ToolStripButton();
             this.addRowToolboxButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteRowToolboxButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,7 @@ namespace App1
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1039, 458);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // tablesList
@@ -95,15 +96,6 @@ namespace App1
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // deleteRowToolboxButton
-            // 
-            this.deleteRowToolboxButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteRowToolboxButton.Image")));
-            this.deleteRowToolboxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteRowToolboxButton.Name = "deleteRowToolboxButton";
-            this.deleteRowToolboxButton.Size = new System.Drawing.Size(104, 24);
-            this.deleteRowToolboxButton.Text = "delete row";
-            this.deleteRowToolboxButton.Click += new System.EventHandler(this.DeleteRow_Click);
-            // 
             // addRowToolboxButton
             // 
             this.addRowToolboxButton.Image = ((System.Drawing.Image)(resources.GetObject("addRowToolboxButton.Image")));
@@ -112,6 +104,15 @@ namespace App1
             this.addRowToolboxButton.Size = new System.Drawing.Size(88, 24);
             this.addRowToolboxButton.Text = "add row";
             this.addRowToolboxButton.Click += new System.EventHandler(this.AddRowToolboxButton_Click);
+            // 
+            // deleteRowToolboxButton
+            // 
+            this.deleteRowToolboxButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteRowToolboxButton.Image")));
+            this.deleteRowToolboxButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteRowToolboxButton.Name = "deleteRowToolboxButton";
+            this.deleteRowToolboxButton.Size = new System.Drawing.Size(104, 24);
+            this.deleteRowToolboxButton.Text = "delete row";
+            this.deleteRowToolboxButton.Click += new System.EventHandler(this.DeleteRow_Click);
             // 
             // Form1
             // 
