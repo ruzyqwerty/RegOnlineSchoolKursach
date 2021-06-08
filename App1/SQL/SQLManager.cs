@@ -20,7 +20,7 @@ namespace App1.SQL
         {
             string sql = "CREATE DATABASE RegOnlineSchool";
 
-            ExecuteSQLCommand(sql);
+            //ExecuteSQLCommand(sql);
 
             sql = "Create table Client (" +
                 "CODE_CL integer primary key identity(1,1) not null," + 
@@ -31,7 +31,7 @@ namespace App1.SQL
                 "NOMER_PASP_CL varchar(50) not null," +
                 "PASSWORD varchar(50) not null);";
 
-            ExecuteSQLCommand(sql);
+            //ExecuteSQLCommand(sql);
         }
 
         public virtual string GetStringValue(string sql, int columnIndex)
