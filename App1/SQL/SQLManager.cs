@@ -3,17 +3,35 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
 
 namespace App1.SQL
 {
     public class SQLManager
     {
         private readonly string connectionString;
+
         public SQLManager()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            connectionString = "Server = localhost\\SQLEXPRESS; Database = RegOnlineSchool; Trusted_Connection = True;";
+            Init();
+        }
+
+        public virtual void Init()
+        {
+            string sql = "CREATE DATABASE RegOnlineSchool";
+
+            ExecuteSQLCommand(sql);
+
+            sql = "Create table Client (" +
+                "CODE_CL integer primary key identity(1,1) not null," + 
+                "IMYA_CL varchar(50) not null," + 
+                "FAM_CL varchar(50) not null," + 
+                "OTCH_CL varchar(50) not null," +
+                "TELEFON_CL varchar(50) not null," +
+                "NOMER_PASP_CL varchar(50) not null," +
+                "PASSWORD varchar(50) not null);";
+
+            ExecuteSQLCommand(sql);
         }
 
         public virtual string GetStringValue(string sql, int columnIndex)
@@ -28,7 +46,7 @@ namespace App1.SQL
 
                 string data = "";
 
-                while(reader.Read())
+                while (reader.Read())
                 {
                     data = reader.GetString(columnIndex);
                 }
@@ -164,7 +182,7 @@ namespace App1.SQL
             }
         }
 
-        public virtual void ExecuteSQLCommand(string sql)
+        public void ExecuteSQLCommand(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -172,7 +190,11 @@ namespace App1.SQL
 
                 SqlCommand command = new SqlCommand(sql, connection);
 
-                command.ExecuteNonQuery();
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception) {}
             }
         }
 
