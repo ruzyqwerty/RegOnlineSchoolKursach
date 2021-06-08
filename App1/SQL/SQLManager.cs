@@ -39,6 +39,29 @@ namespace App1.SQL
             }
         }
 
+        public virtual DateTime GetDataTimeValue(string sql, int columnIndex)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                DateTime data = DateTime.Now;
+
+                while (reader.Read())
+                {
+                    data = reader.GetDateTime(columnIndex);
+                }
+
+                reader.Close();
+
+                return data;
+            }
+        }
+
         public virtual decimal GetMoneyValue(string sql, int columnIndex)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

@@ -33,6 +33,7 @@ namespace App1.Forms
             UpdatePrepodsTable();
             UpdateKursTable();
             UpdateHistotyTable();
+            UpdateDogovorTable();
         }
 
         private void UpdateClientTable()
@@ -404,6 +405,8 @@ namespace App1.Forms
             UpdateKursTable();
             UpdateOrgsTable();
             UpdatePrepodsTable();
+            UpdateHistotyTable();
+            UpdateDogovorTable();
         }
 
         private void addKursToolButton_Click(object sender, EventArgs e)
@@ -443,6 +446,63 @@ namespace App1.Forms
                 historyTable.Rows[i].Cells[4].Value = row["NameKurs"];
                 historyTable.Rows[i].Cells[5].Value = row["delete_date"];
             }
+        }
+
+        private void UpdateDogovorTable()
+        {
+            dogovorTable.Rows.Clear();
+
+            DataTable dataTable = SQLManager.GetDataTable("Dogovor");
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                DataRow row = dataTable.Rows[i];
+
+                string sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
+                string orgName = SQLManager.GetStringValue(sql, 0);
+
+                sql = $"SELECT FAM_CL, IMYA_CL, OTCH_CL from Client WHERE CODE_CL = {row["CODE_CL"]}";
+                string clientFam = SQLManager.GetStringValue(sql, 0);
+                string clientName = SQLManager.GetStringValue(sql, 1);
+                string clientOtch = SQLManager.GetStringValue(sql, 2);
+
+                sql = $"SELECT NAME_KURS from Kurs WHERE CODE_CY = {row["CODE_CY"]}";
+                string kursName = SQLManager.GetStringValue(sql, 0);
+
+                dogovorTable.Rows.Add();
+
+                dogovorTable.Rows[i].Cells[0].Value = row["CODE_DOG"];
+                dogovorTable.Rows[i].Cells[1].Value = orgName;
+                dogovorTable.Rows[i].Cells[2].Value = $"{clientFam} {clientName} {clientOtch}";
+                dogovorTable.Rows[i].Cells[3].Value = kursName;
+                dogovorTable.Rows[i].Cells[4].Value = row["DATA"];
+            }
+        }
+
+        private void deleteDogovorToolButton_Click(object sender, EventArgs e)
+        {
+            string sql = $"DELETE FROM Dogovor WHERE CODE_DOG = {dogovorTable[0, dogovorTable.SelectedCells[0].RowIndex].Value}";
+
+            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
+
+            SQLManager.ExecuteSQLCommand(sql);
+
+            UpdateDogovorTable();
+        }
+
+        private void editDogovorToolButton_Click(object sender, EventArgs e)
+        {
+            int kursId = (int)dogovorTable[0, dogovorTable.SelectedCells[0].RowIndex].Value;
+
+            EditDogovorForm dogovorForm = new EditDogovorForm(kursId);
+            dogovorForm.ShowDialog();
+
+            UpdateDogovorTable();
+        }
+
+        private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

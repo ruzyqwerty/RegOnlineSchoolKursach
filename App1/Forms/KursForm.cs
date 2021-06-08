@@ -95,13 +95,13 @@ namespace App1.Forms
 
             orgNameComboBox.SelectedItem = orgName;
 
-            sql = $"SELECT IMYA_PD from Prepodavateli";
+            sql = $"SELECT IMYA_PD from Prepodavateli WHERE CODE_PD = {prepodCode}";
             List<string> prepodImyas = SQLManager.GetStringValues(sql);
 
-            sql = $"SELECT FAM_PD from Prepodavateli";
+            sql = $"SELECT FAM_PD from Prepodavateli WHERE CODE_PD = {prepodCode}";
             List<string> prepodFams = SQLManager.GetStringValues(sql);
 
-            sql = $"SELECT OTCH_PD from Prepodavateli";
+            sql = $"SELECT OTCH_PD from Prepodavateli WHERE CODE_PD = {prepodCode}";
             List<string> prepodOtchs = SQLManager.GetStringValues(sql);
 
             sql = $"SELECT FAM_PD, IMYA_PD, OTCH_PD from Prepodavateli";

@@ -160,5 +160,10 @@ namespace App1.Forms
             }
             UpdateKursTable();
         }
+
+        private void ClientForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

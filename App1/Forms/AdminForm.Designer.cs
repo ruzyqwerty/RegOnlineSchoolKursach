@@ -36,16 +36,22 @@ namespace App1.Forms
             this.addClientToolButton = new System.Windows.Forms.ToolStripButton();
             this.deleteClientToolButton = new System.Windows.Forms.ToolStripButton();
             this.clientsTable = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Договоры = new System.Windows.Forms.TabPage();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.editDogovorToolButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteDogovorToolButton = new System.Windows.Forms.ToolStripButton();
             this.dogovorTable = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Курсы = new System.Windows.Forms.TabPage();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.addKursToolButton = new System.Windows.Forms.ToolStripButton();
@@ -88,12 +94,6 @@ namespace App1.Forms
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.Клиенты.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -192,6 +192,47 @@ namespace App1.Forms
             this.clientsTable.TabIndex = 0;
             this.clientsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsTable_CellEndEdit);
             // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "ID";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Имя";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 64;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Фамилия";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 99;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Отчество";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Телефон";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 97;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Номер паспорта";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 134;
+            // 
             // Договоры
             // 
             this.Договоры.Controls.Add(this.toolStrip4);
@@ -208,23 +249,35 @@ namespace App1.Forms
             // 
             this.toolStrip4.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2});
+            this.editDogovorToolButton,
+            this.deleteDogovorToolButton});
             this.toolStrip4.Location = new System.Drawing.Point(3, 3);
             this.toolStrip4.Name = "toolStrip4";
             this.toolStrip4.Size = new System.Drawing.Size(786, 27);
             this.toolStrip4.TabIndex = 3;
             this.toolStrip4.Text = "toolStrip4";
             // 
-            // toolStripButton2
+            // editDogovorToolButton
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(178, 24);
-            this.toolStripButton2.Text = "Расторгнуть договор";
+            this.editDogovorToolButton.Image = ((System.Drawing.Image)(resources.GetObject("editDogovorToolButton.Image")));
+            this.editDogovorToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editDogovorToolButton.Name = "editDogovorToolButton";
+            this.editDogovorToolButton.Size = new System.Drawing.Size(164, 24);
+            this.editDogovorToolButton.Text = "Изменить договор";
+            this.editDogovorToolButton.Click += new System.EventHandler(this.editDogovorToolButton_Click);
+            // 
+            // deleteDogovorToolButton
+            // 
+            this.deleteDogovorToolButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteDogovorToolButton.Image")));
+            this.deleteDogovorToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteDogovorToolButton.Name = "deleteDogovorToolButton";
+            this.deleteDogovorToolButton.Size = new System.Drawing.Size(178, 24);
+            this.deleteDogovorToolButton.Text = "Расторгнуть договор";
+            this.deleteDogovorToolButton.Click += new System.EventHandler(this.deleteDogovorToolButton_Click);
             // 
             // dogovorTable
             // 
+            this.dogovorTable.AllowUserToAddRows = false;
             this.dogovorTable.AllowUserToDeleteRows = false;
             this.dogovorTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dogovorTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -233,8 +286,7 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16});
+            this.dataGridViewTextBoxColumn15});
             this.dogovorTable.Location = new System.Drawing.Point(8, 33);
             this.dogovorTable.Name = "dogovorTable";
             this.dogovorTable.RowHeadersWidth = 51;
@@ -251,37 +303,31 @@ namespace App1.Forms
             // 
             // dataGridViewTextBoxColumn12
             // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "Имя";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Организация";
             this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 64;
+            this.dataGridViewTextBoxColumn12.Width = 124;
             // 
             // dataGridViewTextBoxColumn13
             // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Фамилия";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Имя клиента";
             this.dataGridViewTextBoxColumn13.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 99;
+            this.dataGridViewTextBoxColumn13.Width = 122;
             // 
             // dataGridViewTextBoxColumn14
             // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "Отчество";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Курс";
             this.dataGridViewTextBoxColumn14.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 68;
             // 
             // dataGridViewTextBoxColumn15
             // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Телефон";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Дата";
             this.dataGridViewTextBoxColumn15.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.Width = 97;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Номер паспорта";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Width = 134;
+            this.dataGridViewTextBoxColumn15.Width = 71;
             // 
             // Курсы
             // 
@@ -672,47 +718,6 @@ namespace App1.Forms
             this.Column14.Name = "Column14";
             this.Column14.Width = 127;
             // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "ID";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Имя";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 64;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Фамилия";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 99;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Отчество";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Телефон";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 97;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Номер паспорта";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 134;
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -722,6 +727,7 @@ namespace App1.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdminForm";
             this.Text = "Окно администратора";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.Клиенты.ResumeLayout(false);
@@ -788,14 +794,8 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton deleteDogovorToolButton;
         private System.Windows.Forms.DataGridView dogovorTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.ToolStrip toolStrip5;
         private System.Windows.Forms.ToolStripButton addKursToolButton;
         private System.Windows.Forms.ToolStripButton deleteKursToolButton;
@@ -821,5 +821,11 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.ToolStripButton editDogovorToolButton;
     }
 }
