@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App1.SQL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ namespace App1.Forms
 {
     public partial class LoginForm : Form
     {
+        private SQLManager SQLManager = new SQLManager();
         public LoginForm()
         {
             InitializeComponent();
@@ -25,9 +27,29 @@ namespace App1.Forms
             {
                 AdminForm adminForm = new AdminForm();
                 adminForm.Show();
-                this.Close();
+                this.Hide();
                 return;
             }
+
+            string sql = $"SELECT CODE_CL from Client WHERE NOMER_PASP_CL = '{login}'";
+            int clientCode = SQLManager.GetIntValue(sql, 0);
+
+            if (clientCode == -1)
+            {
+                MessageBox.Show("Неправильный логин", "Ошибка", MessageBoxButtons.OK);
+                return;
+            } 
+
+            if (string.IsNullOrEmpty(password))
+            {
+                //MessageBox.Show("Неправильный пароль", "Ошибка", MessageBoxButtons.OK);
+                //return;
+            }
+
+
+            ClientForm clientForm = new ClientForm(clientCode);
+            clientForm.Show();
+            this.Hide();
         }
     }
 }

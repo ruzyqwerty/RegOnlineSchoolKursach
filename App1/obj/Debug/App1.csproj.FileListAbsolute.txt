@@ -1,4 +1,3 @@
-Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.Form1.resources
 Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.csproj.GenerateResource.cache
 Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.csproj.CoreCompileInputs.cache
 Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.csproj.AssemblyReference.cache

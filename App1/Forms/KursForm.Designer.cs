@@ -176,7 +176,7 @@ namespace App1.Forms
             this.Controls.Add(this.orgNameComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "KursForm";
-            this.Text = "KursForm";
+            this.Text = "Окно курса";
             this.Load += new System.EventHandler(this.KursForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chasovNumUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.priceNumUD)).EndInit();

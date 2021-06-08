@@ -175,6 +175,9 @@ namespace App1.Forms
             // clientsTable
             // 
             this.clientsTable.AllowUserToDeleteRows = false;
+            this.clientsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.clientsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.clientsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.clientsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -184,11 +187,11 @@ namespace App1.Forms
             this.Column1,
             this.Column4,
             this.Column5});
-            this.clientsTable.Location = new System.Drawing.Point(8, 33);
+            this.clientsTable.Location = new System.Drawing.Point(-4, 33);
             this.clientsTable.Name = "clientsTable";
             this.clientsTable.RowHeadersWidth = 51;
             this.clientsTable.RowTemplate.Height = 24;
-            this.clientsTable.Size = new System.Drawing.Size(767, 354);
+            this.clientsTable.Size = new System.Drawing.Size(796, 392);
             this.clientsTable.TabIndex = 0;
             this.clientsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsTable_CellEndEdit);
             // 
@@ -279,6 +282,9 @@ namespace App1.Forms
             // 
             this.dogovorTable.AllowUserToAddRows = false;
             this.dogovorTable.AllowUserToDeleteRows = false;
+            this.dogovorTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dogovorTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dogovorTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dogovorTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -287,11 +293,11 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15});
-            this.dogovorTable.Location = new System.Drawing.Point(8, 33);
+            this.dogovorTable.Location = new System.Drawing.Point(-4, 33);
             this.dogovorTable.Name = "dogovorTable";
             this.dogovorTable.RowHeadersWidth = 51;
             this.dogovorTable.RowTemplate.Height = 24;
-            this.dogovorTable.Size = new System.Drawing.Size(767, 369);
+            this.dogovorTable.Size = new System.Drawing.Size(800, 392);
             this.dogovorTable.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn11
@@ -383,6 +389,9 @@ namespace App1.Forms
             // kurssTable
             // 
             this.kurssTable.AllowUserToDeleteRows = false;
+            this.kurssTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.kurssTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.kurssTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.kurssTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -392,11 +401,11 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn21,
             this.dataGridViewTextBoxColumn22});
-            this.kurssTable.Location = new System.Drawing.Point(13, 26);
+            this.kurssTable.Location = new System.Drawing.Point(-4, 26);
             this.kurssTable.Name = "kurssTable";
             this.kurssTable.RowHeadersWidth = 51;
             this.kurssTable.RowTemplate.Height = 24;
-            this.kurssTable.Size = new System.Drawing.Size(767, 369);
+            this.kurssTable.Size = new System.Drawing.Size(796, 399);
             this.kurssTable.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn17
@@ -485,6 +494,9 @@ namespace App1.Forms
             // orgsTable
             // 
             this.orgsTable.AllowUserToDeleteRows = false;
+            this.orgsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.orgsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.orgsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.orgsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -493,11 +505,11 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.orgsTable.Location = new System.Drawing.Point(8, 30);
+            this.orgsTable.Location = new System.Drawing.Point(-4, 24);
             this.orgsTable.Name = "orgsTable";
             this.orgsTable.RowHeadersWidth = 51;
             this.orgsTable.RowTemplate.Height = 24;
-            this.orgsTable.Size = new System.Drawing.Size(767, 383);
+            this.orgsTable.Size = new System.Drawing.Size(796, 401);
             this.orgsTable.TabIndex = 2;
             this.orgsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.orgsTable_CellEndEdit);
             // 
@@ -580,6 +592,9 @@ namespace App1.Forms
             // prepodsTable
             // 
             this.prepodsTable.AllowUserToDeleteRows = false;
+            this.prepodsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.prepodsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.prepodsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prepodsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -590,11 +605,11 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn10,
             this.Column7,
             this.Column8});
-            this.prepodsTable.Location = new System.Drawing.Point(8, 30);
+            this.prepodsTable.Location = new System.Drawing.Point(-4, 30);
             this.prepodsTable.Name = "prepodsTable";
             this.prepodsTable.RowHeadersWidth = 51;
             this.prepodsTable.RowTemplate.Height = 24;
-            this.prepodsTable.Size = new System.Drawing.Size(767, 383);
+            this.prepodsTable.Size = new System.Drawing.Size(800, 395);
             this.prepodsTable.TabIndex = 4;
             this.prepodsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.prepodsTable_CellEndEdit);
             // 
@@ -669,11 +684,12 @@ namespace App1.Forms
             this.Column11,
             this.Column13,
             this.Column14});
-            this.historyTable.Location = new System.Drawing.Point(8, 3);
+            this.historyTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.historyTable.Location = new System.Drawing.Point(0, 0);
             this.historyTable.Name = "historyTable";
             this.historyTable.RowHeadersWidth = 51;
             this.historyTable.RowTemplate.Height = 24;
-            this.historyTable.Size = new System.Drawing.Size(776, 410);
+            this.historyTable.Size = new System.Drawing.Size(792, 421);
             this.historyTable.TabIndex = 0;
             // 
             // Column12

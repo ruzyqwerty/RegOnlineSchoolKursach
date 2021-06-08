@@ -145,7 +145,7 @@ namespace App1.Forms
             this.Controls.Add(this.clientNameComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EditDogovorForm";
-            this.Text = "EditDogovorForm";
+            this.Text = "Изменение договора";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -85,6 +85,7 @@ namespace App1.Forms
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(271, 387);
             this.label2.Name = "label2";
@@ -94,6 +95,7 @@ namespace App1.Forms
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 387);
             this.label1.Name = "label1";
@@ -103,6 +105,7 @@ namespace App1.Forms
             // 
             // chasovSortBox
             // 
+            this.chasovSortBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.chasovSortBox.Location = new System.Drawing.Point(274, 410);
             this.chasovSortBox.Name = "chasovSortBox";
             this.chasovSortBox.Size = new System.Drawing.Size(234, 22);
@@ -111,6 +114,7 @@ namespace App1.Forms
             // 
             // priceSortBox
             // 
+            this.priceSortBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.priceSortBox.Location = new System.Drawing.Point(6, 410);
             this.priceSortBox.Name = "priceSortBox";
             this.priceSortBox.Size = new System.Drawing.Size(228, 22);
@@ -119,6 +123,7 @@ namespace App1.Forms
             // 
             // oformitDogovor
             // 
+            this.oformitDogovor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.oformitDogovor.Location = new System.Drawing.Point(612, 397);
             this.oformitDogovor.Name = "oformitDogovor";
             this.oformitDogovor.Size = new System.Drawing.Size(170, 35);
@@ -140,12 +145,13 @@ namespace App1.Forms
             this.Column3,
             this.Column4,
             this.Column5});
-            this.kursTable.Location = new System.Drawing.Point(6, 6);
+            this.kursTable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kursTable.Location = new System.Drawing.Point(3, 3);
             this.kursTable.Name = "kursTable";
             this.kursTable.RowHeadersWidth = 51;
             this.kursTable.RowTemplate.Height = 24;
             this.kursTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.kursTable.Size = new System.Drawing.Size(776, 378);
+            this.kursTable.Size = new System.Drawing.Size(786, 381);
             this.kursTable.TabIndex = 0;
             // 
             // Column1
@@ -205,11 +211,12 @@ namespace App1.Forms
             this.Column7,
             this.Column8,
             this.Column9});
-            this.dogovorTable.Location = new System.Drawing.Point(8, 6);
+            this.dogovorTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dogovorTable.Location = new System.Drawing.Point(3, 3);
             this.dogovorTable.Name = "dogovorTable";
             this.dogovorTable.RowHeadersWidth = 51;
             this.dogovorTable.RowTemplate.Height = 24;
-            this.dogovorTable.Size = new System.Drawing.Size(776, 398);
+            this.dogovorTable.Size = new System.Drawing.Size(786, 434);
             this.dogovorTable.TabIndex = 0;
             // 
             // Column6
@@ -248,7 +255,7 @@ namespace App1.Forms
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ClientForm";
-            this.Text = "ClientForm";
+            this.Text = "Окно пользователя";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientForm_FormClosing);
             this.Load += new System.EventHandler(this.ClientForm_Load);
             this.tabControl1.ResumeLayout(false);

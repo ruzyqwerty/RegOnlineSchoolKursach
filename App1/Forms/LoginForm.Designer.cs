@@ -45,9 +45,10 @@ namespace App1.Forms
             this.groupBox1.Controls.Add(this.passwordTextBox);
             this.groupBox1.Controls.Add(this.loginTextBox);
             this.groupBox1.Controls.Add(this.loginBtn);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(292, 153);
+            this.groupBox1.Size = new System.Drawing.Size(311, 160);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Авторизация";
@@ -55,7 +56,7 @@ namespace App1.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 63);
+            this.label2.Location = new System.Drawing.Point(6, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 4;
@@ -64,7 +65,7 @@ namespace App1.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 18);
+            this.label1.Location = new System.Drawing.Point(6, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 3;
@@ -72,23 +73,23 @@ namespace App1.Forms
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(9, 83);
+            this.passwordTextBox.Location = new System.Drawing.Point(6, 92);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(279, 22);
+            this.passwordTextBox.Size = new System.Drawing.Size(296, 22);
             this.passwordTextBox.TabIndex = 2;
             // 
             // loginTextBox
             // 
-            this.loginTextBox.Location = new System.Drawing.Point(9, 38);
+            this.loginTextBox.Location = new System.Drawing.Point(6, 47);
             this.loginTextBox.Name = "loginTextBox";
-            this.loginTextBox.Size = new System.Drawing.Size(279, 22);
+            this.loginTextBox.Size = new System.Drawing.Size(296, 22);
             this.loginTextBox.TabIndex = 1;
             // 
             // loginBtn
             // 
-            this.loginBtn.Location = new System.Drawing.Point(9, 117);
+            this.loginBtn.Location = new System.Drawing.Point(6, 120);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(279, 29);
+            this.loginBtn.Size = new System.Drawing.Size(296, 29);
             this.loginBtn.TabIndex = 0;
             this.loginBtn.Text = "Войти";
             this.loginBtn.UseVisualStyleBackColor = true;
@@ -98,7 +99,7 @@ namespace App1.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 170);
+            this.ClientSize = new System.Drawing.Size(311, 160);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginForm";

@@ -15,9 +15,24 @@
         <e p="Form1.Designer.cs" t="Include" />
         <e p="Form1.resx" t="Include" />
         <e p="Forms" t="Include">
+          <e p="AdminForm.cs" t="Include" />
+          <e p="AdminForm.Designer.cs" t="Include" />
+          <e p="AdminForm.resx" t="Include" />
           <e p="ClientForm.cs" t="Include" />
           <e p="ClientForm.Designer.cs" t="Include" />
           <e p="ClientForm.resx" t="Include" />
+          <e p="DogovorForm.cs" t="Include" />
+          <e p="DogovorForm.Designer.cs" t="Include" />
+          <e p="DogovorForm.resx" t="Include" />
+          <e p="EditDogovorForm.cs" t="Include" />
+          <e p="EditDogovorForm.Designer.cs" t="Include" />
+          <e p="EditDogovorForm.resx" t="Include" />
+          <e p="KursForm.cs" t="Include" />
+          <e p="KursForm.Designer.cs" t="Include" />
+          <e p="KursForm.resx" t="Include" />
+          <e p="LoginForm.cs" t="Include" />
+          <e p="LoginForm.Designer.cs" t="Include" />
+          <e p="LoginForm.resx" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="Program.cs" t="Include" />
@@ -27,6 +42,9 @@
           <e p="Resources.resx" t="Include" />
           <e p="Settings.Designer.cs" t="Include" />
           <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="SQL" t="Include">
+          <e p="SQLManager.cs" t="Include" />
         </e>
       </e>
       <e p="App1.sln" t="IncludeFlat" />
