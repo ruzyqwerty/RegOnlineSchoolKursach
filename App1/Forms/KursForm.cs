@@ -151,8 +151,6 @@ namespace App1.Forms
             sql = "INSERT INTO Kurs (CODE_ORG, CODE_PD, NAME_KURS, CHASOV, PRICE) " +
                  $"VALUES ({orgId}, {prepodId}, '{kursNameTextBox.Text}', {chasovNumUD.Value}, {priceNumUD.Value})";
 
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
-
             SQLManager.ExecuteSQLCommand(sql);
         }
 

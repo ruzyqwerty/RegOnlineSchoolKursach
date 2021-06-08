@@ -84,8 +84,6 @@ namespace App1.Forms
                 sql = $"INSERT INTO Client ({string.Join(", ", columnsNames)})" +
                 $" VALUES ('{string.Join("', '", newData)}')";
 
-                MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
-
                 SQLManager.ExecuteSQLCommand(sql);
 
                 UpdateClientTable();
@@ -94,8 +92,6 @@ namespace App1.Forms
             }
 
             sql = $"UPDATE Client SET {GetClientColumnName(clientsTable.Columns[e.ColumnIndex].HeaderText)} = '{clientsTable[e.ColumnIndex, e.RowIndex].Value}' WHERE CODE_CL = {clientsTable[0, e.RowIndex].Value};";
-
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
 
             SQLManager.ExecuteSQLCommand(sql);
 
@@ -139,8 +135,6 @@ namespace App1.Forms
         private void deleteClientToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Client WHERE CODE_CL = {clientsTable[0, clientsTable.SelectedCells[0].RowIndex].Value}";
-
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
 
             SQLManager.ExecuteSQLCommand(sql);
 
@@ -193,8 +187,6 @@ namespace App1.Forms
                 sql = $"INSERT INTO Organizatsia ({string.Join(", ", columnsNames)})" +
                 $" VALUES ('{string.Join("', '", newData)}')";
 
-                MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
-
                 SQLManager.ExecuteSQLCommand(sql);
 
                 UpdateOrgsTable();
@@ -203,8 +195,6 @@ namespace App1.Forms
             }
 
             sql = $"UPDATE Organizatsia SET {GetOrgColumnName(orgsTable.Columns[e.ColumnIndex].HeaderText)} = '{orgsTable[e.ColumnIndex, e.RowIndex].Value}' WHERE CODE_ORG = {orgsTable[0, e.RowIndex].Value};";
-
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
 
             SQLManager.ExecuteSQLCommand(sql);
 
@@ -242,8 +232,6 @@ namespace App1.Forms
         private void deleteOrgToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Organizatsia WHERE CODE_ORG = {orgsTable[0, orgsTable.SelectedCells[0].RowIndex].Value}";
-
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
 
             SQLManager.ExecuteSQLCommand(sql);
 
@@ -298,8 +286,6 @@ namespace App1.Forms
                 sql = $"INSERT INTO Prepodavateli ({string.Join(", ", columnsNames)})" +
                 $" VALUES ('{string.Join("', '", newData)}')";
 
-                MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
-
                 SQLManager.ExecuteSQLCommand(sql);
 
                 UpdatePrepodsTable();
@@ -308,8 +294,6 @@ namespace App1.Forms
             }
 
             sql = $"UPDATE Prepodavateli SET {GetPrepodColumnName(prepodsTable.Columns[e.ColumnIndex].HeaderText)} = '{prepodsTable[e.ColumnIndex, e.RowIndex].Value}' WHERE CODE_PD = {prepodsTable[0, e.RowIndex].Value};";
-
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
 
             SQLManager.ExecuteSQLCommand(sql);
 
@@ -354,8 +338,6 @@ namespace App1.Forms
         {
             string sql = $"DELETE FROM Prepodavateli WHERE CODE_PD = {prepodsTable[0, prepodsTable.SelectedCells[0].RowIndex].Value}";
 
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
-
             SQLManager.ExecuteSQLCommand(sql);
 
             UpdatePrepodsTable();
@@ -395,8 +377,6 @@ namespace App1.Forms
         private void deleteKursToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Kurs WHERE CODE_CY = {kurssTable[0, kurssTable.SelectedCells[0].RowIndex].Value}";
-
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
 
             SQLManager.ExecuteSQLCommand(sql);
 
@@ -486,8 +466,6 @@ namespace App1.Forms
         private void deleteDogovorToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Dogovor WHERE CODE_DOG = {dogovorTable[0, dogovorTable.SelectedCells[0].RowIndex].Value}";
-
-            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
 
             SQLManager.ExecuteSQLCommand(sql);
 

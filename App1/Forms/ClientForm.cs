@@ -142,7 +142,6 @@ namespace App1.Forms
             catch (Exception ex)
             {
                 priceSort = 0;
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
             UpdateKursTable();
         }
@@ -156,7 +155,6 @@ namespace App1.Forms
             catch (Exception ex)
             {
                 chasovSort = 0;
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
             UpdateKursTable();
         }
