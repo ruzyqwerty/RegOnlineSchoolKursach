@@ -85,6 +85,7 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editKursToolButton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -287,10 +288,11 @@ namespace App1.Forms
             this.toolStrip5.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addKursToolButton,
+            this.editKursToolButton,
             this.deleteKursToolButton});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(792, 27);
+            this.toolStrip5.Size = new System.Drawing.Size(792, 31);
             this.toolStrip5.TabIndex = 4;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -620,6 +622,15 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.Width = 72;
             // 
+            // editKursToolButton
+            // 
+            this.editKursToolButton.Image = ((System.Drawing.Image)(resources.GetObject("editKursToolButton.Image")));
+            this.editKursToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editKursToolButton.Name = "editKursToolButton";
+            this.editKursToolButton.Size = new System.Drawing.Size(136, 28);
+            this.editKursToolButton.Text = "Изменить курс";
+            this.editKursToolButton.Click += new System.EventHandler(this.editKursToolButton_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -717,5 +728,6 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.ToolStripButton editKursToolButton;
     }
 }

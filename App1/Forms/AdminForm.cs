@@ -409,5 +409,15 @@ namespace App1.Forms
 
             UpdateKursTable();
         }
+
+        private void editKursToolButton_Click(object sender, EventArgs e)
+        {
+            int kursId = (int)kurssTable[0, kurssTable.SelectedCells[0].RowIndex].Value;
+
+            KursForm kursForm = new KursForm(kursId);
+            kursForm.ShowDialog();
+
+            UpdateKursTable();
+        }
     }
 }
