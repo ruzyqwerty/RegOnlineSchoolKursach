@@ -111,7 +111,7 @@ namespace App1.Forms
             this.kursTable.RowHeadersWidth = 51;
             this.kursTable.RowTemplate.Height = 24;
             this.kursTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.kursTable.Size = new System.Drawing.Size(776, 366);
+            this.kursTable.Size = new System.Drawing.Size(776, 378);
             this.kursTable.TabIndex = 0;
             // 
             // Column1

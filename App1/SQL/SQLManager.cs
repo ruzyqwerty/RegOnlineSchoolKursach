@@ -85,7 +85,7 @@ namespace App1.SQL
             }
         }
 
-        public virtual List<int> GetKeysValue(string sql)
+        public virtual List<int> GetKeysValues(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -102,6 +102,36 @@ namespace App1.SQL
                 while (reader.Read())
                 {
                     data = reader.GetInt32(0);
+                    keys.Add(data);
+                }
+
+                reader.Close();
+
+                return keys;
+            }
+        }
+
+        public virtual List<string> GetStringValues(string sql)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                string data = "";
+
+                List<string> keys = new List<string>();
+
+                while (reader.Read())
+                {
+                    data = reader.GetString(0);
+
+                    if (string.IsNullOrEmpty(data))
+                        continue;
+
                     keys.Add(data);
                 }
 

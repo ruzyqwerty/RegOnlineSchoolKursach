@@ -49,7 +49,7 @@ namespace App1.Forms
                 sql = $"SELECT CODE_CY from Kurs WHERE CHASOV < {chasovSort}";
             else sql = $"SELECT CODE_CY from Kurs";
 
-            List<int> keys = SQLManager.GetKeysValue(sql);
+            List<int> keys = SQLManager.GetKeysValues(sql);
 
             int count = 0;
 

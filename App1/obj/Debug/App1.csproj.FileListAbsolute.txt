@@ -11,3 +11,4 @@ Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.pdb
 Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.Forms.ClientForm.resources
 Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.Forms.DogovorForm.resources
 Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.Forms.AdminForm.resources
+Z:\Desktop\C#Projects\App1\App1\obj\Debug\App1.Forms.KursForm.resources

@@ -28,6 +28,7 @@ namespace App1.Forms
             UpdateClientTable();
             UpdateOrgsTable();
             UpdatePrepodsTable();
+            UpdateKursTable();
         }
 
         private void UpdateClientTable()
@@ -349,6 +350,64 @@ namespace App1.Forms
             SQLManager.ExecuteSQLCommand(sql);
 
             UpdatePrepodsTable();
+        }
+
+        private void UpdateKursTable()
+        {
+            kurssTable.Rows.Clear();
+
+            DataTable dataTable = SQLManager.GetDataTable("Kurs");
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                string sql;
+
+                DataRow row = dataTable.Rows[i];
+
+                sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
+                string orgName = SQLManager.GetStringValue(sql, 0);
+
+                sql = $"SELECT FAM_PD, IMYA_PD, OTCH_PD from Prepodavateli WHERE CODE_PD = {row["CODE_PD"]}";
+                string prepodFam = SQLManager.GetStringValue(sql, 0);
+                string prepodName = SQLManager.GetStringValue(sql, 1);
+                string prepodOtch = SQLManager.GetStringValue(sql, 2);
+
+                kurssTable.Rows.Add();
+
+                kurssTable.Rows[i].Cells[0].Value = row["CODE_CY"];
+                kurssTable.Rows[i].Cells[1].Value = $"Курс {row["NAME_KURS"]}";
+                kurssTable.Rows[i].Cells[2].Value = $"{prepodFam} {prepodName} {prepodOtch}";
+                kurssTable.Rows[i].Cells[3].Value = orgName;
+                kurssTable.Rows[i].Cells[4].Value = row["CHASOV"];
+                kurssTable.Rows[i].Cells[5].Value = row["PRICE"];
+            }
+        }
+
+        private void deleteKursToolButton_Click(object sender, EventArgs e)
+        {
+            string sql = $"DELETE FROM Kurs WHERE CODE_CY = {kurssTable[0, kurssTable.SelectedCells[0].RowIndex].Value}";
+
+            MessageBox.Show(sql, "SQL Command", MessageBoxButtons.OK);
+
+            SQLManager.ExecuteSQLCommand(sql);
+
+            UpdateKursTable();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateClientTable();
+            UpdateKursTable();
+            UpdateOrgsTable();
+            UpdatePrepodsTable();
+        }
+
+        private void addKursToolButton_Click(object sender, EventArgs e)
+        {
+            KursForm kursForm = new KursForm();
+            kursForm.ShowDialog();
+
+            UpdateKursTable();
         }
     }
 }
