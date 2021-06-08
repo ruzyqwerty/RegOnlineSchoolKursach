@@ -31,8 +31,9 @@ namespace App1.Forms
                 return;
             }
 
-            string sql = $"SELECT CODE_CL from Client WHERE NOMER_PASP_CL = '{login}'";
+            string sql = $"SELECT CODE_CL, PASSWORD_CL from Client WHERE NOMER_PASP_CL = '{login}'";
             int clientCode = SQLManager.GetIntValue(sql, 0);
+            string clientPassword = SQLManager.GetStringValue(sql, 1);
 
             if (clientCode == -1)
             {
@@ -40,10 +41,10 @@ namespace App1.Forms
                 return;
             } 
 
-            if (string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(password) || password != clientPassword)
             {
-                //MessageBox.Show("Неправильный пароль", "Ошибка", MessageBoxButtons.OK);
-                //return;
+                MessageBox.Show("Неправильный пароль", "Ошибка", MessageBoxButtons.OK);
+                return;
             }
 
 

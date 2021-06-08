@@ -145,7 +145,6 @@ namespace App1.Forms
 
             string fam = prepodNameComboBox.SelectedItem.ToString().Split(' ')[0];
             string name = prepodNameComboBox.SelectedItem.ToString().Split(' ')[1];
-            //string otch = prepodNameComboBox.SelectedItem.ToString().Split(' ')[2];
             sql = $"SELECT CODE_PD from Prepodavateli WHERE FAM_PD = '{fam}' AND IMYA_PD = '{name}'";
             int prepodId = SQLManager.GetIntValue(sql, 0);
 
@@ -164,7 +163,6 @@ namespace App1.Forms
 
             string fam = prepodNameComboBox.SelectedItem.ToString().Split(' ')[0];
             string name = prepodNameComboBox.SelectedItem.ToString().Split(' ')[1];
-            //string otch = prepodNameComboBox.SelectedItem.ToString().Split(' ')[2];
             sql = $"SELECT CODE_PD from Prepodavateli WHERE FAM_PD = '{fam}' AND IMYA_PD = '{name}'";
             int prepodId = SQLManager.GetIntValue(sql, 0);
 

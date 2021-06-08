@@ -54,6 +54,7 @@ namespace App1.Forms
                 clientsTable.Rows[i].Cells[3].Value = row["OTCH_CL"];
                 clientsTable.Rows[i].Cells[4].Value = row["TELEFON_CL"];
                 clientsTable.Rows[i].Cells[5].Value = row["NOMER_PASP_CL"];
+                clientsTable.Rows[i].Cells[6].Value = row["PASSWORD_CL"];
             }
         }
 
@@ -121,6 +122,9 @@ namespace App1.Forms
                     break;
                 case "Номер паспорта":
                     header = "NOMER_PASP_CL";
+                    break;
+                case "Пароль":
+                    header = "PASSWORD_CL";
                     break;
             }
 

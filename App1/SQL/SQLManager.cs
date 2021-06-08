@@ -173,8 +173,6 @@ namespace App1.SQL
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 command.ExecuteNonQuery();
-
-                //connection.Close();
             }
         }
 
