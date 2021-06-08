@@ -22,13 +22,17 @@ namespace App1.Forms
         private void AdminForm_Load(object sender, EventArgs e)
         {
             clientsTable.Columns[0].ReadOnly = true;
+            dogovorTable.Columns[0].ReadOnly = true;
+            kurssTable.Columns[0].ReadOnly = true;
             orgsTable.Columns[0].ReadOnly = true;
             prepodsTable.Columns[0].ReadOnly = true;
+            historyTable.Columns[0].ReadOnly = true;
 
             UpdateClientTable();
             UpdateOrgsTable();
             UpdatePrepodsTable();
             UpdateKursTable();
+            UpdateHistotyTable();
         }
 
         private void UpdateClientTable()
@@ -418,6 +422,27 @@ namespace App1.Forms
             kursForm.ShowDialog();
 
             UpdateKursTable();
+        }
+
+        private void UpdateHistotyTable()
+        {
+            historyTable.Rows.Clear();
+
+            DataTable dataTable = SQLManager.GetDataTable("history");
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                DataRow row = dataTable.Rows[i];
+
+                historyTable.Rows.Add();
+
+                historyTable.Rows[i].Cells[0].Value = row["CODE_HIS"];
+                historyTable.Rows[i].Cells[1].Value = row["CODE_DL"];
+                historyTable.Rows[i].Cells[2].Value = row["Operation"];
+                historyTable.Rows[i].Cells[3].Value = row["FamCL"];
+                historyTable.Rows[i].Cells[4].Value = row["NameKurs"];
+                historyTable.Rows[i].Cells[5].Value = row["delete_date"];
+            }
         }
     }
 }
