@@ -44,6 +44,10 @@ namespace App1.Forms
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceSortBox = new System.Windows.Forms.TextBox();
+            this.chasovSortBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kursTable)).BeginInit();
@@ -59,25 +63,29 @@ namespace App1.Forms
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(800, 469);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.chasovSortBox);
+            this.tabPage1.Controls.Add(this.priceSortBox);
             this.tabPage1.Controls.Add(this.oformitDogovor);
             this.tabPage1.Controls.Add(this.kursTable);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 421);
+            this.tabPage1.Size = new System.Drawing.Size(792, 440);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Курсы";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // oformitDogovor
             // 
-            this.oformitDogovor.Location = new System.Drawing.Point(612, 378);
+            this.oformitDogovor.Location = new System.Drawing.Point(612, 397);
             this.oformitDogovor.Name = "oformitDogovor";
             this.oformitDogovor.Size = new System.Drawing.Size(170, 35);
             this.oformitDogovor.TabIndex = 1;
@@ -198,11 +206,45 @@ namespace App1.Forms
             this.Column9.Name = "Column9";
             this.Column9.Width = 125;
             // 
+            // priceSortBox
+            // 
+            this.priceSortBox.Location = new System.Drawing.Point(6, 410);
+            this.priceSortBox.Name = "priceSortBox";
+            this.priceSortBox.Size = new System.Drawing.Size(228, 22);
+            this.priceSortBox.TabIndex = 2;
+            this.priceSortBox.TextChanged += new System.EventHandler(this.priceSortBox_TextChanged);
+            // 
+            // chasovSortBox
+            // 
+            this.chasovSortBox.Location = new System.Drawing.Point(274, 410);
+            this.chasovSortBox.Name = "chasovSortBox";
+            this.chasovSortBox.Size = new System.Drawing.Size(234, 22);
+            this.chasovSortBox.TabIndex = 3;
+            this.chasovSortBox.TextChanged += new System.EventHandler(this.chasovSortBox_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 387);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(228, 17);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Фильтр по цене (цена меньше n)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(271, 387);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(237, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Фильтр по часам (часы меньше n)";
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 469);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ClientForm";
@@ -210,6 +252,7 @@ namespace App1.Forms
             this.Load += new System.EventHandler(this.ClientForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kursTable)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dogovorTable)).EndInit();
@@ -234,5 +277,9 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.TextBox chasovSortBox;
+        private System.Windows.Forms.TextBox priceSortBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

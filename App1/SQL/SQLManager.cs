@@ -85,6 +85,32 @@ namespace App1.SQL
             }
         }
 
+        public virtual List<int> GetKeysValue(string sql)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand(sql, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                int data = -1;
+
+                List<int> keys = new List<int>();
+
+                while (reader.Read())
+                {
+                    data = reader.GetInt32(0);
+                    keys.Add(data);
+                }
+
+                reader.Close();
+
+                return keys;
+            }
+        }
+
         public virtual void ExecuteSQLCommand(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
