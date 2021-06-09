@@ -162,7 +162,7 @@ namespace App1.SQL
             }
         }
 
-        public void ExecuteSQLCommand(string sql)
+        public object ExecuteSQLCommand(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -172,10 +172,12 @@ namespace App1.SQL
 
                 try
                 {
-                    command.ExecuteNonQuery();
+                    return command.ExecuteScalar();
                 }
                 catch (Exception) { }
             }
+
+            return null;
         }
 
         public virtual DataTable GetDataTable(string tableName)

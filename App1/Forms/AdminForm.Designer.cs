@@ -31,12 +31,18 @@ namespace App1.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.Клиенты = new System.Windows.Forms.TabPage();
+            this.clients = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.addClientToolButton = new System.Windows.Forms.ToolStripButton();
             this.deleteClientToolButton = new System.Windows.Forms.ToolStripButton();
             this.clientsTable = new System.Windows.Forms.DataGridView();
-            this.Договоры = new System.Windows.Forms.TabPage();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dogovors = new System.Windows.Forms.TabPage();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.editDogovorToolButton = new System.Windows.Forms.ToolStripButton();
             this.deleteDogovorToolButton = new System.Windows.Forms.ToolStripButton();
@@ -46,7 +52,7 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Курсы = new System.Windows.Forms.TabPage();
+            this.kurss = new System.Windows.Forms.TabPage();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.addKursToolButton = new System.Windows.Forms.ToolStripButton();
             this.editKursToolButton = new System.Windows.Forms.ToolStripButton();
@@ -58,7 +64,7 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Организации = new System.Windows.Forms.TabPage();
+            this.orgs = new System.Windows.Forms.TabPage();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.addOrgToolButton = new System.Windows.Forms.ToolStripButton();
             this.deleteOrgToolButton = new System.Windows.Forms.ToolStripButton();
@@ -68,7 +74,7 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Преподаватели = new System.Windows.Forms.TabPage();
+            this.prepods = new System.Windows.Forms.TabPage();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.addPrepodToolButton = new System.Windows.Forms.ToolStripButton();
             this.deletePrepodToolButton = new System.Windows.Forms.ToolStripButton();
@@ -80,37 +86,45 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Журнал = new System.Windows.Forms.TabPage();
+            this.history = new System.Windows.Forms.TabPage();
             this.historyTable = new System.Windows.Forms.DataGridView();
-            this.returnBtn = new System.Windows.Forms.Button();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientPassword = new System.Windows.Forms.TabPage();
+            this.clientPasswordTable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adminPassword = new System.Windows.Forms.TabPage();
+            this.adminPasswordTable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.Клиенты.SuspendLayout();
+            this.clients.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsTable)).BeginInit();
-            this.Договоры.SuspendLayout();
+            this.dogovors.SuspendLayout();
             this.toolStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dogovorTable)).BeginInit();
-            this.Курсы.SuspendLayout();
+            this.kurss.SuspendLayout();
             this.toolStrip5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kurssTable)).BeginInit();
-            this.Организации.SuspendLayout();
+            this.orgs.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orgsTable)).BeginInit();
-            this.Преподаватели.SuspendLayout();
+            this.prepods.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prepodsTable)).BeginInit();
-            this.Журнал.SuspendLayout();
+            this.history.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyTable)).BeginInit();
+            this.clientPassword.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientPasswordTable)).BeginInit();
+            this.adminPassword.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,30 +132,32 @@ namespace App1.Forms
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.Клиенты);
-            this.tabControl1.Controls.Add(this.Договоры);
-            this.tabControl1.Controls.Add(this.Курсы);
-            this.tabControl1.Controls.Add(this.Организации);
-            this.tabControl1.Controls.Add(this.Преподаватели);
-            this.tabControl1.Controls.Add(this.Журнал);
+            this.tabControl1.Controls.Add(this.clients);
+            this.tabControl1.Controls.Add(this.dogovors);
+            this.tabControl1.Controls.Add(this.kurss);
+            this.tabControl1.Controls.Add(this.orgs);
+            this.tabControl1.Controls.Add(this.prepods);
+            this.tabControl1.Controls.Add(this.history);
+            this.tabControl1.Controls.Add(this.clientPassword);
+            this.tabControl1.Controls.Add(this.adminPassword);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 414);
+            this.tabControl1.Size = new System.Drawing.Size(885, 414);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // Клиенты
+            // clients
             // 
-            this.Клиенты.Controls.Add(this.toolStrip1);
-            this.Клиенты.Controls.Add(this.clientsTable);
-            this.Клиенты.Location = new System.Drawing.Point(4, 25);
-            this.Клиенты.Name = "Клиенты";
-            this.Клиенты.Padding = new System.Windows.Forms.Padding(3);
-            this.Клиенты.Size = new System.Drawing.Size(792, 385);
-            this.Клиенты.TabIndex = 0;
-            this.Клиенты.Text = "Клиенты";
-            this.Клиенты.UseVisualStyleBackColor = true;
+            this.clients.Controls.Add(this.toolStrip1);
+            this.clients.Controls.Add(this.clientsTable);
+            this.clients.Location = new System.Drawing.Point(4, 25);
+            this.clients.Name = "clients";
+            this.clients.Padding = new System.Windows.Forms.Padding(3);
+            this.clients.Size = new System.Drawing.Size(877, 385);
+            this.clients.TabIndex = 0;
+            this.clients.Text = "Клиенты";
+            this.clients.UseVisualStyleBackColor = true;
             // 
             // toolStrip1
             // 
@@ -151,7 +167,7 @@ namespace App1.Forms
             this.deleteClientToolButton});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(786, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(871, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -192,21 +208,63 @@ namespace App1.Forms
             this.clientsTable.Name = "clientsTable";
             this.clientsTable.RowHeadersWidth = 51;
             this.clientsTable.RowTemplate.Height = 24;
-            this.clientsTable.Size = new System.Drawing.Size(796, 356);
+            this.clientsTable.Size = new System.Drawing.Size(881, 356);
             this.clientsTable.TabIndex = 0;
+            this.clientsTable.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.clientsTable_CellBeginEdit);
             this.clientsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsTable_CellEndEdit);
             // 
-            // Договоры
+            // Column6
             // 
-            this.Договоры.Controls.Add(this.toolStrip4);
-            this.Договоры.Controls.Add(this.dogovorTable);
-            this.Договоры.Location = new System.Drawing.Point(4, 25);
-            this.Договоры.Name = "Договоры";
-            this.Договоры.Padding = new System.Windows.Forms.Padding(3);
-            this.Договоры.Size = new System.Drawing.Size(792, 385);
-            this.Договоры.TabIndex = 1;
-            this.Договоры.Text = "Договоры";
-            this.Договоры.UseVisualStyleBackColor = true;
+            this.Column6.HeaderText = "ID";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Имя";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 64;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Фамилия";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 99;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Отчество";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Телефон";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 97;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Номер паспорта";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 134;
+            // 
+            // dogovors
+            // 
+            this.dogovors.Controls.Add(this.toolStrip4);
+            this.dogovors.Controls.Add(this.dogovorTable);
+            this.dogovors.Location = new System.Drawing.Point(4, 25);
+            this.dogovors.Name = "dogovors";
+            this.dogovors.Padding = new System.Windows.Forms.Padding(3);
+            this.dogovors.Size = new System.Drawing.Size(877, 385);
+            this.dogovors.TabIndex = 1;
+            this.dogovors.Text = "Договоры";
+            this.dogovors.UseVisualStyleBackColor = true;
             // 
             // toolStrip4
             // 
@@ -216,7 +274,7 @@ namespace App1.Forms
             this.deleteDogovorToolButton});
             this.toolStrip4.Location = new System.Drawing.Point(3, 3);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(786, 27);
+            this.toolStrip4.Size = new System.Drawing.Size(871, 27);
             this.toolStrip4.TabIndex = 3;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -257,7 +315,7 @@ namespace App1.Forms
             this.dogovorTable.Name = "dogovorTable";
             this.dogovorTable.RowHeadersWidth = 51;
             this.dogovorTable.RowTemplate.Height = 24;
-            this.dogovorTable.Size = new System.Drawing.Size(800, 392);
+            this.dogovorTable.Size = new System.Drawing.Size(885, 392);
             this.dogovorTable.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn11
@@ -295,16 +353,16 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.Width = 71;
             // 
-            // Курсы
+            // kurss
             // 
-            this.Курсы.Controls.Add(this.toolStrip5);
-            this.Курсы.Controls.Add(this.kurssTable);
-            this.Курсы.Location = new System.Drawing.Point(4, 25);
-            this.Курсы.Name = "Курсы";
-            this.Курсы.Size = new System.Drawing.Size(792, 385);
-            this.Курсы.TabIndex = 2;
-            this.Курсы.Text = "Курсы";
-            this.Курсы.UseVisualStyleBackColor = true;
+            this.kurss.Controls.Add(this.toolStrip5);
+            this.kurss.Controls.Add(this.kurssTable);
+            this.kurss.Location = new System.Drawing.Point(4, 25);
+            this.kurss.Name = "kurss";
+            this.kurss.Size = new System.Drawing.Size(877, 385);
+            this.kurss.TabIndex = 2;
+            this.kurss.Text = "Курсы";
+            this.kurss.UseVisualStyleBackColor = true;
             // 
             // toolStrip5
             // 
@@ -315,7 +373,7 @@ namespace App1.Forms
             this.deleteKursToolButton});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(792, 27);
+            this.toolStrip5.Size = new System.Drawing.Size(877, 27);
             this.toolStrip5.TabIndex = 4;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -365,7 +423,7 @@ namespace App1.Forms
             this.kurssTable.Name = "kurssTable";
             this.kurssTable.RowHeadersWidth = 51;
             this.kurssTable.RowTemplate.Height = 24;
-            this.kurssTable.Size = new System.Drawing.Size(796, 399);
+            this.kurssTable.Size = new System.Drawing.Size(881, 399);
             this.kurssTable.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn17
@@ -410,16 +468,16 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             this.dataGridViewTextBoxColumn22.Width = 72;
             // 
-            // Организации
+            // orgs
             // 
-            this.Организации.Controls.Add(this.toolStrip2);
-            this.Организации.Controls.Add(this.orgsTable);
-            this.Организации.Location = new System.Drawing.Point(4, 25);
-            this.Организации.Name = "Организации";
-            this.Организации.Size = new System.Drawing.Size(792, 385);
-            this.Организации.TabIndex = 3;
-            this.Организации.Text = "Организации";
-            this.Организации.UseVisualStyleBackColor = true;
+            this.orgs.Controls.Add(this.toolStrip2);
+            this.orgs.Controls.Add(this.orgsTable);
+            this.orgs.Location = new System.Drawing.Point(4, 25);
+            this.orgs.Name = "orgs";
+            this.orgs.Size = new System.Drawing.Size(877, 385);
+            this.orgs.TabIndex = 3;
+            this.orgs.Text = "Организации";
+            this.orgs.UseVisualStyleBackColor = true;
             // 
             // toolStrip2
             // 
@@ -429,7 +487,7 @@ namespace App1.Forms
             this.deleteOrgToolButton});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(792, 27);
+            this.toolStrip2.Size = new System.Drawing.Size(877, 27);
             this.toolStrip2.TabIndex = 3;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -469,7 +527,7 @@ namespace App1.Forms
             this.orgsTable.Name = "orgsTable";
             this.orgsTable.RowHeadersWidth = 51;
             this.orgsTable.RowTemplate.Height = 24;
-            this.orgsTable.Size = new System.Drawing.Size(796, 401);
+            this.orgsTable.Size = new System.Drawing.Size(881, 401);
             this.orgsTable.TabIndex = 2;
             this.orgsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.orgsTable_CellEndEdit);
             // 
@@ -508,16 +566,16 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.Width = 97;
             // 
-            // Преподаватели
+            // prepods
             // 
-            this.Преподаватели.Controls.Add(this.toolStrip3);
-            this.Преподаватели.Controls.Add(this.prepodsTable);
-            this.Преподаватели.Location = new System.Drawing.Point(4, 25);
-            this.Преподаватели.Name = "Преподаватели";
-            this.Преподаватели.Size = new System.Drawing.Size(792, 385);
-            this.Преподаватели.TabIndex = 4;
-            this.Преподаватели.Text = "Преподаватели";
-            this.Преподаватели.UseVisualStyleBackColor = true;
+            this.prepods.Controls.Add(this.toolStrip3);
+            this.prepods.Controls.Add(this.prepodsTable);
+            this.prepods.Location = new System.Drawing.Point(4, 25);
+            this.prepods.Name = "prepods";
+            this.prepods.Size = new System.Drawing.Size(877, 385);
+            this.prepods.TabIndex = 4;
+            this.prepods.Text = "Преподаватели";
+            this.prepods.UseVisualStyleBackColor = true;
             // 
             // toolStrip3
             // 
@@ -527,7 +585,7 @@ namespace App1.Forms
             this.deletePrepodToolButton});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(792, 27);
+            this.toolStrip3.Size = new System.Drawing.Size(877, 27);
             this.toolStrip3.TabIndex = 5;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -569,7 +627,7 @@ namespace App1.Forms
             this.prepodsTable.Name = "prepodsTable";
             this.prepodsTable.RowHeadersWidth = 51;
             this.prepodsTable.RowTemplate.Height = 24;
-            this.prepodsTable.Size = new System.Drawing.Size(800, 395);
+            this.prepodsTable.Size = new System.Drawing.Size(885, 395);
             this.prepodsTable.TabIndex = 4;
             this.prepodsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.prepodsTable_CellEndEdit);
             // 
@@ -621,15 +679,15 @@ namespace App1.Forms
             this.Column8.Name = "Column8";
             this.Column8.Width = 134;
             // 
-            // Журнал
+            // history
             // 
-            this.Журнал.Controls.Add(this.historyTable);
-            this.Журнал.Location = new System.Drawing.Point(4, 25);
-            this.Журнал.Name = "Журнал";
-            this.Журнал.Size = new System.Drawing.Size(792, 385);
-            this.Журнал.TabIndex = 5;
-            this.Журнал.Text = "Журнал";
-            this.Журнал.UseVisualStyleBackColor = true;
+            this.history.Controls.Add(this.historyTable);
+            this.history.Location = new System.Drawing.Point(4, 25);
+            this.history.Name = "history";
+            this.history.Size = new System.Drawing.Size(877, 385);
+            this.history.TabIndex = 5;
+            this.history.Text = "Журнал";
+            this.history.UseVisualStyleBackColor = true;
             // 
             // historyTable
             // 
@@ -647,18 +705,8 @@ namespace App1.Forms
             this.historyTable.Name = "historyTable";
             this.historyTable.RowHeadersWidth = 51;
             this.historyTable.RowTemplate.Height = 24;
-            this.historyTable.Size = new System.Drawing.Size(792, 385);
+            this.historyTable.Size = new System.Drawing.Size(877, 385);
             this.historyTable.TabIndex = 0;
-            // 
-            // returnBtn
-            // 
-            this.returnBtn.Location = new System.Drawing.Point(595, 420);
-            this.returnBtn.Name = "returnBtn";
-            this.returnBtn.Size = new System.Drawing.Size(193, 35);
-            this.returnBtn.TabIndex = 1;
-            this.returnBtn.Text = "Вернуться на окно входа";
-            this.returnBtn.UseVisualStyleBackColor = true;
-            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // Column12
             // 
@@ -672,7 +720,7 @@ namespace App1.Forms
             this.Column9.HeaderText = "ID договора";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
-            this.Column9.Width = 114;
+            this.Column9.Width = 105;
             // 
             // Column10
             // 
@@ -688,52 +736,124 @@ namespace App1.Forms
             this.Column14.Name = "Column14";
             this.Column14.Width = 127;
             // 
-            // Column6
+            // clientPassword
             // 
-            this.Column6.HeaderText = "ID";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
+            this.clientPassword.Controls.Add(this.clientPasswordTable);
+            this.clientPassword.Location = new System.Drawing.Point(4, 25);
+            this.clientPassword.Name = "clientPassword";
+            this.clientPassword.Size = new System.Drawing.Size(877, 385);
+            this.clientPassword.TabIndex = 6;
+            this.clientPassword.Text = "Пароли клиентов";
+            this.clientPassword.UseVisualStyleBackColor = true;
             // 
-            // Column2
+            // clientPasswordTable
             // 
-            this.Column2.HeaderText = "Имя";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 64;
+            this.clientPasswordTable.AllowUserToAddRows = false;
+            this.clientPasswordTable.AllowUserToDeleteRows = false;
+            this.clientPasswordTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clientPasswordTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.clientPasswordTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.clientPasswordTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24});
+            this.clientPasswordTable.Location = new System.Drawing.Point(-2, 3);
+            this.clientPasswordTable.Name = "clientPasswordTable";
+            this.clientPasswordTable.RowHeadersWidth = 51;
+            this.clientPasswordTable.RowTemplate.Height = 24;
+            this.clientPasswordTable.Size = new System.Drawing.Size(881, 384);
+            this.clientPasswordTable.TabIndex = 2;
+            this.clientPasswordTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientPasswordTable_CellEndEdit);
             // 
-            // Column3
+            // dataGridViewTextBoxColumn16
             // 
-            this.Column3.HeaderText = "Фамилия";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 99;
+            this.dataGridViewTextBoxColumn16.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 50;
             // 
-            // Column1
+            // dataGridViewTextBoxColumn23
             // 
-            this.Column1.HeaderText = "Отчество";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Логин";
+            this.dataGridViewTextBoxColumn23.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.Width = 76;
             // 
-            // Column4
+            // dataGridViewTextBoxColumn24
             // 
-            this.Column4.HeaderText = "Телефон";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 97;
+            this.dataGridViewTextBoxColumn24.HeaderText = "Пароль";
+            this.dataGridViewTextBoxColumn24.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.Width = 86;
             // 
-            // Column5
+            // adminPassword
             // 
-            this.Column5.HeaderText = "Номер паспорта";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 134;
+            this.adminPassword.Controls.Add(this.adminPasswordTable);
+            this.adminPassword.Location = new System.Drawing.Point(4, 25);
+            this.adminPassword.Name = "adminPassword";
+            this.adminPassword.Size = new System.Drawing.Size(877, 385);
+            this.adminPassword.TabIndex = 7;
+            this.adminPassword.Text = "Пароли админов";
+            this.adminPassword.UseVisualStyleBackColor = true;
+            // 
+            // adminPasswordTable
+            // 
+            this.adminPasswordTable.AllowUserToDeleteRows = false;
+            this.adminPasswordTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminPasswordTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.adminPasswordTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.adminPasswordTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27});
+            this.adminPasswordTable.Location = new System.Drawing.Point(-2, 0);
+            this.adminPasswordTable.Name = "adminPasswordTable";
+            this.adminPasswordTable.RowHeadersWidth = 51;
+            this.adminPasswordTable.RowTemplate.Height = 24;
+            this.adminPasswordTable.Size = new System.Drawing.Size(881, 384);
+            this.adminPasswordTable.TabIndex = 3;
+            this.adminPasswordTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminPasswordTable_CellEndEdit);
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn25.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.HeaderText = "Логин";
+            this.dataGridViewTextBoxColumn26.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.Width = 76;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.HeaderText = "Пароль";
+            this.dataGridViewTextBoxColumn27.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.Width = 86;
+            // 
+            // returnBtn
+            // 
+            this.returnBtn.Location = new System.Drawing.Point(680, 420);
+            this.returnBtn.Name = "returnBtn";
+            this.returnBtn.Size = new System.Drawing.Size(193, 35);
+            this.returnBtn.TabIndex = 1;
+            this.returnBtn.Text = "Вернуться на окно входа";
+            this.returnBtn.UseVisualStyleBackColor = true;
+            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 464);
+            this.ClientSize = new System.Drawing.Size(885, 464);
             this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -742,33 +862,37 @@ namespace App1.Forms
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
             this.Load += new System.EventHandler(this.AdminForm_Load);
             this.tabControl1.ResumeLayout(false);
-            this.Клиенты.ResumeLayout(false);
-            this.Клиенты.PerformLayout();
+            this.clients.ResumeLayout(false);
+            this.clients.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsTable)).EndInit();
-            this.Договоры.ResumeLayout(false);
-            this.Договоры.PerformLayout();
+            this.dogovors.ResumeLayout(false);
+            this.dogovors.PerformLayout();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dogovorTable)).EndInit();
-            this.Курсы.ResumeLayout(false);
-            this.Курсы.PerformLayout();
+            this.kurss.ResumeLayout(false);
+            this.kurss.PerformLayout();
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kurssTable)).EndInit();
-            this.Организации.ResumeLayout(false);
-            this.Организации.PerformLayout();
+            this.orgs.ResumeLayout(false);
+            this.orgs.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orgsTable)).EndInit();
-            this.Преподаватели.ResumeLayout(false);
-            this.Преподаватели.PerformLayout();
+            this.prepods.ResumeLayout(false);
+            this.prepods.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prepodsTable)).EndInit();
-            this.Журнал.ResumeLayout(false);
+            this.history.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.historyTable)).EndInit();
+            this.clientPassword.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.clientPasswordTable)).EndInit();
+            this.adminPassword.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -776,15 +900,15 @@ namespace App1.Forms
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage Клиенты;
+        private System.Windows.Forms.TabPage clients;
         private System.Windows.Forms.DataGridView clientsTable;
-        private System.Windows.Forms.TabPage Договоры;
+        private System.Windows.Forms.TabPage dogovors;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton addClientToolButton;
         private System.Windows.Forms.ToolStripButton deleteClientToolButton;
-        private System.Windows.Forms.TabPage Курсы;
-        private System.Windows.Forms.TabPage Организации;
-        private System.Windows.Forms.TabPage Преподаватели;
+        private System.Windows.Forms.TabPage kurss;
+        private System.Windows.Forms.TabPage orgs;
+        private System.Windows.Forms.TabPage prepods;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton addOrgToolButton;
         private System.Windows.Forms.ToolStripButton deleteOrgToolButton;
@@ -819,7 +943,7 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.ToolStripButton editKursToolButton;
-        private System.Windows.Forms.TabPage Журнал;
+        private System.Windows.Forms.TabPage history;
         private System.Windows.Forms.DataGridView historyTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
@@ -838,5 +962,15 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TabPage clientPassword;
+        private System.Windows.Forms.DataGridView clientPasswordTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.TabPage adminPassword;
+        private System.Windows.Forms.DataGridView adminPasswordTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
     }
 }

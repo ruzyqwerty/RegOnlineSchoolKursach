@@ -39,49 +39,53 @@ namespace App1.Forms
 
         private void UpdateKursTable()
         {
-            kursTable.Rows.Clear();
-
-            string sql;
-
-            if (priceSort != 0 && chasovSort != 0)
-                sql = $"SELECT CODE_CY from Kurs WHERE PRICE < {priceSort} AND CHASOV < {chasovSort}";
-            else if (priceSort != 0)
-                sql = $"SELECT CODE_CY from Kurs WHERE PRICE < {priceSort}";
-            else if (chasovSort != 0)
-                sql = $"SELECT CODE_CY from Kurs WHERE CHASOV < {chasovSort}";
-            else sql = $"SELECT CODE_CY from Kurs";
-
-            List<int> keys = SQLManager.GetKeysValues(sql);
-
-            int count = 0;
-
-            foreach (int key in keys)
+            try
             {
-                sql = $"SELECT CODE_ORG, CODE_PD, NAME_KURS, CHASOV, PRICE from Kurs WHERE CODE_CY = {key}";
-                int orgCode = SQLManager.GetIntValue(sql, 0);
-                int prepodCode = SQLManager.GetIntValue(sql, 1);
-                string kursName = SQLManager.GetStringValue(sql, 2);
-                int chasov = SQLManager.GetIntValue(sql, 3);
-                decimal price = SQLManager.GetMoneyValue(sql, 4);
+                kursTable.Rows.Clear();
 
-                sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {orgCode}";
-                string orgName = SQLManager.GetStringValue(sql, 0);
+                string sql;
 
-                sql = $"SELECT FAM_PD, IMYA_PD, OTCH_PD from Prepodavateli WHERE CODE_PD = {prepodCode}";
-                string prepodFam = SQLManager.GetStringValue(sql, 0);
-                string prepodName = SQLManager.GetStringValue(sql, 1);
-                string prepodOtch = SQLManager.GetStringValue(sql, 2);
+                if (priceSort != 0 && chasovSort != 0)
+                    sql = $"SELECT CODE_CY from Kurs WHERE PRICE < {priceSort} AND CHASOV < {chasovSort}";
+                else if (priceSort != 0)
+                    sql = $"SELECT CODE_CY from Kurs WHERE PRICE < {priceSort}";
+                else if (chasovSort != 0)
+                    sql = $"SELECT CODE_CY from Kurs WHERE CHASOV < {chasovSort}";
+                else sql = $"SELECT CODE_CY from Kurs";
 
-                kursTable.Rows.Add();
+                List<int> keys = SQLManager.GetKeysValues(sql);
 
-                kursTable.Rows[count].Cells[0].Value = $"Курс {kursName}";
-                kursTable.Rows[count].Cells[1].Value = $"{prepodFam} {prepodName} {prepodOtch}";
-                kursTable.Rows[count].Cells[2].Value = orgName;
-                kursTable.Rows[count].Cells[3].Value = chasov.ToString();
-                kursTable.Rows[count].Cells[4].Value = price.ToString();
+                int count = 0;
 
-                count += 1;
+                foreach (int key in keys)
+                {
+                    sql = $"SELECT CODE_ORG, CODE_PD, NAME_KURS, CHASOV, PRICE from Kurs WHERE CODE_CY = {key}";
+                    int orgCode = SQLManager.GetIntValue(sql, 0);
+                    int prepodCode = SQLManager.GetIntValue(sql, 1);
+                    string kursName = SQLManager.GetStringValue(sql, 2);
+                    int chasov = SQLManager.GetIntValue(sql, 3);
+                    decimal price = SQLManager.GetMoneyValue(sql, 4);
+
+                    sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {orgCode}";
+                    string orgName = SQLManager.GetStringValue(sql, 0);
+
+                    sql = $"SELECT FAM_PD, IMYA_PD, OTCH_PD from Prepodavateli WHERE CODE_PD = {prepodCode}";
+                    string prepodFam = SQLManager.GetStringValue(sql, 0);
+                    string prepodName = SQLManager.GetStringValue(sql, 1);
+                    string prepodOtch = SQLManager.GetStringValue(sql, 2);
+
+                    kursTable.Rows.Add();
+
+                    kursTable.Rows[count].Cells[0].Value = $"Курс {kursName}";
+                    kursTable.Rows[count].Cells[1].Value = $"{prepodFam} {prepodName} {prepodOtch}";
+                    kursTable.Rows[count].Cells[2].Value = orgName;
+                    kursTable.Rows[count].Cells[3].Value = chasov.ToString();
+                    kursTable.Rows[count].Cells[4].Value = price.ToString();
+
+                    count += 1;
+                }
             }
+            catch (Exception) { }
         }
 
         private void oformitDogovor_Click(object sender, EventArgs e)
@@ -103,36 +107,40 @@ namespace App1.Forms
 
         private void UpdateDogovorTable()
         {
-            dogovorTable.Rows.Clear();
-
-            DataTable dataTable = SQLManager.GetDataTable("Dogovor");
-
-            int count = 0;
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                DataRow row = dataTable.Rows[i];
+                dogovorTable.Rows.Clear();
 
-                if (row["CODE_CL"].ToString() != currentClient.ToString())
-                    continue;
+                DataTable dataTable = SQLManager.GetDataTable("Dogovor");
+
+                int count = 0;
+
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+
+                    if (row["CODE_CL"].ToString() != currentClient.ToString())
+                        continue;
 
 
-                string sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
-                string orgName = SQLManager.GetStringValue(sql, 0);
+                    string sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
+                    string orgName = SQLManager.GetStringValue(sql, 0);
 
-                sql = $"SELECT NAME_KURS, PRICE from Kurs WHERE CODE_CY = {row["CODE_CY"]}";
-                string kursName = SQLManager.GetStringValue(sql, 0);
-                decimal price = SQLManager.GetMoneyValue(sql, 1);
+                    sql = $"SELECT NAME_KURS, PRICE from Kurs WHERE CODE_CY = {row["CODE_CY"]}";
+                    string kursName = SQLManager.GetStringValue(sql, 0);
+                    decimal price = SQLManager.GetMoneyValue(sql, 1);
 
-                dogovorTable.Rows.Add();
+                    dogovorTable.Rows.Add();
 
-                dogovorTable.Rows[count].Cells[0].Value = kursName;
-                dogovorTable.Rows[count].Cells[1].Value = orgName;
-                dogovorTable.Rows[count].Cells[2].Value = price.ToString();
-                dogovorTable.Rows[count].Cells[3].Value = row["DATA"].ToString().Split(' ')[0];
+                    dogovorTable.Rows[count].Cells[0].Value = kursName;
+                    dogovorTable.Rows[count].Cells[1].Value = orgName;
+                    dogovorTable.Rows[count].Cells[2].Value = price.ToString();
+                    dogovorTable.Rows[count].Cells[3].Value = row["DATA"].ToString().Split(' ')[0];
 
-                count += 1;
+                    count += 1;
+                }
             }
+            catch (Exception) { }
         }
 
         private void priceSortBox_TextChanged(object sender, EventArgs e)

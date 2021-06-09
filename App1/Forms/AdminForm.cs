@@ -13,6 +13,8 @@ namespace App1.Forms
 
         private bool isExit = true;
 
+        private string oldValue = "";
+
         public AdminForm(LoginForm form)
         {
             InitializeComponent();
@@ -28,6 +30,8 @@ namespace App1.Forms
             orgsTable.Columns[0].ReadOnly = true;
             prepodsTable.Columns[0].ReadOnly = true;
             historyTable.Columns[0].ReadOnly = true;
+            clientPasswordTable.Columns[0].ReadOnly = true;
+            clientPasswordTable.Columns[1].ReadOnly = true;
 
             UpdateClientTable();
             UpdateOrgsTable();
@@ -35,27 +39,34 @@ namespace App1.Forms
             UpdateKursTable();
             UpdateHistotyTable();
             UpdateDogovorTable();
+            UpdateClientPasswordTable();
+            UpdateAdminPasswordTable();
         }
 
         private void UpdateClientTable()
         {
-            clientsTable.Rows.Clear();
-
-            DataTable dataTable = SQLManager.GetDataTable("Client");
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                DataRow row = dataTable.Rows[i];
+                clientsTable.Rows.Clear();
 
-                clientsTable.Rows.Add();
+                DataTable dataTable = SQLManager.GetDataTable("Client");
 
-                clientsTable.Rows[i].Cells[0].Value = row["CODE_CL"];
-                clientsTable.Rows[i].Cells[1].Value = row["IMYA_CL"];
-                clientsTable.Rows[i].Cells[2].Value = row["FAM_CL"];
-                clientsTable.Rows[i].Cells[3].Value = row["OTCH_CL"];
-                clientsTable.Rows[i].Cells[4].Value = row["TELEFON_CL"];
-                clientsTable.Rows[i].Cells[5].Value = row["NOMER_PASP_CL"];
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+
+                    clientsTable.Rows.Add();
+
+                    clientsTable.Rows[i].Cells[0].Value = row["CODE_CL"];
+                    clientsTable.Rows[i].Cells[1].Value = row["IMYA_CL"];
+                    clientsTable.Rows[i].Cells[2].Value = row["FAM_CL"];
+                    clientsTable.Rows[i].Cells[3].Value = row["OTCH_CL"];
+                    clientsTable.Rows[i].Cells[4].Value = row["TELEFON_CL"];
+                    clientsTable.Rows[i].Cells[5].Value = row["NOMER_PASP_CL"];
+                }
             }
+            catch (Exception) { }
+
         }
 
         private void clientsTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +93,21 @@ namespace App1.Forms
                 }
 
                 sql = $"INSERT INTO Client ({string.Join(", ", columnsNames)})" +
-                $" VALUES ('{string.Join("', '", newData)}')";
+                $" VALUES ('{string.Join("', '", newData)}'); SELECT SCOPE_IDENTITY()";
+
+                object result = SQLManager.ExecuteSQLCommand(sql);
+
+                if (result == null)
+                    return;
+
+                int clientId = Convert.ToInt32(result);
+
+                sql = $"SELECT TELEFON_CL FROM Client WHERE CODE_CL = {clientId}";
+
+                string login = SQLManager.GetStringValue(sql, 0);
+
+                sql = $"INSERT INTO client_pass (login, password)" +
+                      $" VALUES ('{login}', '123456')";
 
                 SQLManager.ExecuteSQLCommand(sql);
 
@@ -91,11 +116,31 @@ namespace App1.Forms
                 return;
             }
 
+            if (e.ColumnIndex == 4)
+            {
+                sql = $"SELECT CODE_clpass From client_pass WHERE login = '{oldValue}'";
+
+                int loginId = SQLManager.GetIntValue(sql, 0);
+
+                sql = $"UPDATE client_pass SET login = '{clientsTable[4, e.RowIndex].Value}' WHERE CODE_clpass = {loginId};";
+
+                SQLManager.ExecuteSQLCommand(sql);
+            }
+
             sql = $"UPDATE Client SET {GetClientColumnName(clientsTable.Columns[e.ColumnIndex].HeaderText)} = '{clientsTable[e.ColumnIndex, e.RowIndex].Value}' WHERE CODE_CL = {clientsTable[0, e.RowIndex].Value};";
 
             SQLManager.ExecuteSQLCommand(sql);
 
             UpdateClientTable();
+        }
+
+        private void clientsTable_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                if (clientsTable[e.ColumnIndex, e.RowIndex].Value != null)
+                    oldValue = clientsTable[e.ColumnIndex, e.RowIndex].Value.ToString();
+            }
         }
 
         private string GetClientColumnName(string name)
@@ -134,7 +179,15 @@ namespace App1.Forms
 
         private void deleteClientToolButton_Click(object sender, EventArgs e)
         {
-            string sql = $"DELETE FROM Client WHERE CODE_CL = {clientsTable[0, clientsTable.SelectedCells[0].RowIndex].Value}";
+            string sql = $"SELECT TELEFON_CL From Client WHERE CODE_CL = {clientsTable[0, clientsTable.SelectedCells[0].RowIndex].Value}";
+
+            string login = SQLManager.GetStringValue(sql, 0);
+
+            sql = $"DELETE FROM Client WHERE CODE_CL = {clientsTable[0, clientsTable.SelectedCells[0].RowIndex].Value}";
+
+            SQLManager.ExecuteSQLCommand(sql);
+
+            sql = $"DELETE FROM client_pass WHERE login = {login}";
 
             SQLManager.ExecuteSQLCommand(sql);
 
@@ -143,22 +196,26 @@ namespace App1.Forms
 
         private void UpdateOrgsTable()
         {
-            orgsTable.Rows.Clear();
-
-            DataTable dataTable = SQLManager.GetDataTable("Organizatsia");
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                DataRow row = dataTable.Rows[i];
+                orgsTable.Rows.Clear();
 
-                orgsTable.Rows.Add();
+                DataTable dataTable = SQLManager.GetDataTable("Organizatsia");
 
-                orgsTable.Rows[i].Cells[0].Value = row["CODE_ORG"];
-                orgsTable.Rows[i].Cells[1].Value = row["NAME_ORG"];
-                orgsTable.Rows[i].Cells[2].Value = row["ADRESS_ORG"];
-                orgsTable.Rows[i].Cells[3].Value = row["RUKOVOD"];
-                orgsTable.Rows[i].Cells[4].Value = row["TELEFON_ORG"];
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+
+                    orgsTable.Rows.Add();
+
+                    orgsTable.Rows[i].Cells[0].Value = row["CODE_ORG"];
+                    orgsTable.Rows[i].Cells[1].Value = row["NAME_ORG"];
+                    orgsTable.Rows[i].Cells[2].Value = row["ADRESS_ORG"];
+                    orgsTable.Rows[i].Cells[3].Value = row["RUKOVOD"];
+                    orgsTable.Rows[i].Cells[4].Value = row["TELEFON_ORG"];
+                }
             }
+            catch (Exception) { }
         }
 
         private void orgsTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -240,24 +297,28 @@ namespace App1.Forms
 
         private void UpdatePrepodsTable()
         {
-            prepodsTable.Rows.Clear();
-
-            DataTable dataTable = SQLManager.GetDataTable("Prepodavateli");
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                DataRow row = dataTable.Rows[i];
+                prepodsTable.Rows.Clear();
 
-                prepodsTable.Rows.Add();
+                DataTable dataTable = SQLManager.GetDataTable("Prepodavateli");
 
-                prepodsTable.Rows[i].Cells[0].Value = row["CODE_PD"];
-                prepodsTable.Rows[i].Cells[1].Value = row["IMYA_PD"];
-                prepodsTable.Rows[i].Cells[2].Value = row["FAM_PD"];
-                prepodsTable.Rows[i].Cells[3].Value = row["OTCH_PD"];
-                prepodsTable.Rows[i].Cells[4].Value = row["STASH"];
-                prepodsTable.Rows[i].Cells[5].Value = row["TELEFON_PD"];
-                prepodsTable.Rows[i].Cells[6].Value = row["NOMER_PASP_PD"];
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+
+                    prepodsTable.Rows.Add();
+
+                    prepodsTable.Rows[i].Cells[0].Value = row["CODE_PD"];
+                    prepodsTable.Rows[i].Cells[1].Value = row["IMYA_PD"];
+                    prepodsTable.Rows[i].Cells[2].Value = row["FAM_PD"];
+                    prepodsTable.Rows[i].Cells[3].Value = row["OTCH_PD"];
+                    prepodsTable.Rows[i].Cells[4].Value = row["STASH"];
+                    prepodsTable.Rows[i].Cells[5].Value = row["TELEFON_PD"];
+                    prepodsTable.Rows[i].Cells[6].Value = row["NOMER_PASP_PD"];
+                }
             }
+            catch (Exception) { }
         }
 
         private void prepodsTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -345,33 +406,37 @@ namespace App1.Forms
 
         private void UpdateKursTable()
         {
-            kurssTable.Rows.Clear();
-
-            DataTable dataTable = SQLManager.GetDataTable("Kurs");
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                string sql;
+                kurssTable.Rows.Clear();
 
-                DataRow row = dataTable.Rows[i];
+                DataTable dataTable = SQLManager.GetDataTable("Kurs");
 
-                sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
-                string orgName = SQLManager.GetStringValue(sql, 0);
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    string sql;
 
-                sql = $"SELECT FAM_PD, IMYA_PD, OTCH_PD from Prepodavateli WHERE CODE_PD = {row["CODE_PD"]}";
-                string prepodFam = SQLManager.GetStringValue(sql, 0);
-                string prepodName = SQLManager.GetStringValue(sql, 1);
-                string prepodOtch = SQLManager.GetStringValue(sql, 2);
+                    DataRow row = dataTable.Rows[i];
 
-                kurssTable.Rows.Add();
+                    sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
+                    string orgName = SQLManager.GetStringValue(sql, 0);
 
-                kurssTable.Rows[i].Cells[0].Value = row["CODE_CY"];
-                kurssTable.Rows[i].Cells[1].Value = $"Курс {row["NAME_KURS"]}";
-                kurssTable.Rows[i].Cells[2].Value = $"{prepodFam} {prepodName} {prepodOtch}";
-                kurssTable.Rows[i].Cells[3].Value = orgName;
-                kurssTable.Rows[i].Cells[4].Value = row["CHASOV"];
-                kurssTable.Rows[i].Cells[5].Value = row["PRICE"];
+                    sql = $"SELECT FAM_PD, IMYA_PD, OTCH_PD from Prepodavateli WHERE CODE_PD = {row["CODE_PD"]}";
+                    string prepodFam = SQLManager.GetStringValue(sql, 0);
+                    string prepodName = SQLManager.GetStringValue(sql, 1);
+                    string prepodOtch = SQLManager.GetStringValue(sql, 2);
+
+                    kurssTable.Rows.Add();
+
+                    kurssTable.Rows[i].Cells[0].Value = row["CODE_CY"];
+                    kurssTable.Rows[i].Cells[1].Value = $"Курс {row["NAME_KURS"]}";
+                    kurssTable.Rows[i].Cells[2].Value = $"{prepodFam} {prepodName} {prepodOtch}";
+                    kurssTable.Rows[i].Cells[3].Value = orgName;
+                    kurssTable.Rows[i].Cells[4].Value = row["CHASOV"];
+                    kurssTable.Rows[i].Cells[5].Value = row["PRICE"];
+                }
             }
+            catch (Exception) { }
         }
 
         private void deleteKursToolButton_Click(object sender, EventArgs e)
@@ -391,6 +456,8 @@ namespace App1.Forms
             UpdatePrepodsTable();
             UpdateHistotyTable();
             UpdateDogovorTable();
+            UpdateClientPasswordTable();
+            UpdateAdminPasswordTable();
         }
 
         private void addKursToolButton_Click(object sender, EventArgs e)
@@ -413,52 +480,61 @@ namespace App1.Forms
 
         private void UpdateHistotyTable()
         {
-            historyTable.Rows.Clear();
-
-            DataTable dataTable = SQLManager.GetDataTable("history");
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                DataRow row = dataTable.Rows[i];
+                historyTable.Rows.Clear();
 
-                historyTable.Rows.Add();
+                DataTable dataTable = SQLManager.GetDataTable("history");
 
-                historyTable.Rows[i].Cells[0].Value = row["CODE_HIS"];
-                historyTable.Rows[i].Cells[1].Value = row["CODE_DL"];
-                historyTable.Rows[i].Cells[2].Value = row["Operation"];
-                historyTable.Rows[i].Cells[3].Value = row["delete_date"];
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+
+                    historyTable.Rows.Add();
+
+                    historyTable.Rows[i].Cells[0].Value = row["CODE_HIS"];
+                    historyTable.Rows[i].Cells[1].Value = row["CODE_DL"];
+                    historyTable.Rows[i].Cells[2].Value = row["Operation"];
+                    historyTable.Rows[i].Cells[3].Value = row["delete_date"];
+                }
             }
+            catch (Exception) { }
         }
 
         private void UpdateDogovorTable()
         {
-            dogovorTable.Rows.Clear();
-
-            DataTable dataTable = SQLManager.GetDataTable("Dogovor");
-
-            for (int i = 0; i < dataTable.Rows.Count; i++)
+            try
             {
-                DataRow row = dataTable.Rows[i];
+                dogovorTable.Rows.Clear();
 
-                string sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
-                string orgName = SQLManager.GetStringValue(sql, 0);
+                DataTable dataTable = SQLManager.GetDataTable("Dogovor");
 
-                sql = $"SELECT FAM_CL, IMYA_CL, OTCH_CL from Client WHERE CODE_CL = {row["CODE_CL"]}";
-                string clientFam = SQLManager.GetStringValue(sql, 0);
-                string clientName = SQLManager.GetStringValue(sql, 1);
-                string clientOtch = SQLManager.GetStringValue(sql, 2);
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
 
-                sql = $"SELECT NAME_KURS from Kurs WHERE CODE_CY = {row["CODE_CY"]}";
-                string kursName = SQLManager.GetStringValue(sql, 0);
+                    string sql = $"SELECT NAME_ORG from Organizatsia WHERE CODE_ORG = {row["CODE_ORG"]}";
+                    string orgName = SQLManager.GetStringValue(sql, 0);
 
-                dogovorTable.Rows.Add();
+                    sql = $"SELECT FAM_CL, IMYA_CL, OTCH_CL from Client WHERE CODE_CL = {row["CODE_CL"]}";
+                    string clientFam = SQLManager.GetStringValue(sql, 0);
+                    string clientName = SQLManager.GetStringValue(sql, 1);
+                    string clientOtch = SQLManager.GetStringValue(sql, 2);
 
-                dogovorTable.Rows[i].Cells[0].Value = row["CODE_DOG"];
-                dogovorTable.Rows[i].Cells[1].Value = orgName;
-                dogovorTable.Rows[i].Cells[2].Value = $"{clientFam} {clientName} {clientOtch}";
-                dogovorTable.Rows[i].Cells[3].Value = kursName;
-                dogovorTable.Rows[i].Cells[4].Value = row["DATA"];
+                    sql = $"SELECT NAME_KURS from Kurs WHERE CODE_CY = {row["CODE_CY"]}";
+                    string kursName = SQLManager.GetStringValue(sql, 0);
+
+                    dogovorTable.Rows.Add();
+
+                    dogovorTable.Rows[i].Cells[0].Value = row["CODE_DOG"];
+                    dogovorTable.Rows[i].Cells[1].Value = orgName;
+                    dogovorTable.Rows[i].Cells[2].Value = $"{clientFam} {clientName} {clientOtch}";
+                    dogovorTable.Rows[i].Cells[3].Value = kursName;
+                    dogovorTable.Rows[i].Cells[4].Value = row["DATA"];
+                }
             }
+            catch (Exception) { }
+
         }
 
         private void deleteDogovorToolButton_Click(object sender, EventArgs e)
@@ -492,6 +568,118 @@ namespace App1.Forms
             loginForm.SwitchVisible();
             loginForm.Show();
             this.Close();
+        }
+
+        private void UpdateClientPasswordTable()
+        {
+            try
+            {
+                clientPasswordTable.Rows.Clear();
+
+                DataTable dataTable = SQLManager.GetDataTable("client_pass");
+
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+
+                    clientPasswordTable.Rows.Add();
+
+                    clientPasswordTable.Rows[i].Cells[0].Value = row["CODE_clpass"];
+                    clientPasswordTable.Rows[i].Cells[1].Value = row["login"];
+                    clientPasswordTable.Rows[i].Cells[2].Value = row["password"];
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void clientPasswordTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            string sql;
+
+            sql = $"UPDATE client_pass SET {GetPasswordColumnName(clientPasswordTable.Columns[e.ColumnIndex].HeaderText)} = '{clientPasswordTable[e.ColumnIndex, e.RowIndex].Value}' WHERE CODE_clpass = {clientPasswordTable[0, e.RowIndex].Value};";
+
+            SQLManager.ExecuteSQLCommand(sql);
+
+            UpdateClientPasswordTable();
+        }
+
+        private string GetPasswordColumnName(string name)
+        {
+            string header = "";
+
+            switch (name)
+            {
+                case "Логин":
+                    header = "login";
+                    break;
+                case "Пароль":
+                    header = "password";
+                    break;
+            }
+
+            return header;
+        }
+
+        private void UpdateAdminPasswordTable()
+        {
+            try
+            {
+                adminPasswordTable.Rows.Clear();
+
+                DataTable dataTable = SQLManager.GetDataTable("admin_pass");
+
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+
+                    adminPasswordTable.Rows.Add();
+
+                    adminPasswordTable.Rows[i].Cells[0].Value = row["CODE_admpass"];
+                    adminPasswordTable.Rows[i].Cells[1].Value = row["login"];
+                    adminPasswordTable.Rows[i].Cells[2].Value = row["password"];
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void adminPasswordTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            string sql;
+
+            if (adminPasswordTable[0, e.RowIndex].Value == null || string.IsNullOrWhiteSpace(adminPasswordTable[0, e.RowIndex].Value.ToString()))
+            {
+                List<string> columnsNames = new List<string>();
+                List<string> newData = new List<string>();
+
+                foreach (DataGridViewCell cell in adminPasswordTable.Rows[e.RowIndex].Cells)
+                {
+                    if ((cell.Value == null || string.IsNullOrWhiteSpace(cell.Value.ToString())) && cell.ColumnIndex != 0)
+                    {
+                        return;
+                    }
+
+                    if (cell.ColumnIndex != 0)
+                    {
+                        columnsNames.Add(GetPasswordColumnName(adminPasswordTable.Columns[cell.ColumnIndex].HeaderText));
+                        newData.Add(cell.Value.ToString());
+                    }
+                }
+
+                sql = $"INSERT INTO admin_pass ({string.Join(", ", columnsNames)})" +
+                $" VALUES ('{string.Join("', '", newData)}')";
+
+                SQLManager.ExecuteSQLCommand(sql);
+
+                UpdateAdminPasswordTable();
+
+                return;
+            }
+
+            sql = $"UPDATE admin_pass SET {GetPasswordColumnName(adminPasswordTable.Columns[e.ColumnIndex].HeaderText)} = '{adminPasswordTable[e.ColumnIndex, e.RowIndex].Value}' WHERE CODE_admpass = {adminPasswordTable[0, e.RowIndex].Value};";
+
+            SQLManager.ExecuteSQLCommand(sql);
+
+            UpdateAdminPasswordTable();
         }
     }
 }
