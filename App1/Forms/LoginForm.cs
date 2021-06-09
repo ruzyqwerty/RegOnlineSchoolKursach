@@ -26,14 +26,21 @@ namespace App1.Forms
             string login =  loginTextBox.Text;
             string password = passwordTextBox.Text;
 
+            string sql;
+
             if (isAdmin)
             {
-                if (login != "admin")
+                sql = $"SELECT CODE_admpass, password from admin_pass WHERE login = '{login}'";
+                int adminLoginCode = SQLManager.GetIntValue(sql, 0);
+                string adminPassword = SQLManager.GetStringValue(sql, 1);
+
+                if (adminLoginCode == -1)
                 {
-                    MessageBox.Show("Неправильный логин адмиина", "Ошибка", MessageBoxButtons.OK);
+                    MessageBox.Show("Неправильный логин админа", "Ошибка", MessageBoxButtons.OK);
                     return;
                 }
-                if (password != "admin")
+
+                if (string.IsNullOrEmpty(password) || password != adminPassword)
                 {
                     MessageBox.Show("Неправильный пароль админа", "Ошибка", MessageBoxButtons.OK);
                     return;
@@ -45,9 +52,10 @@ namespace App1.Forms
                 return;
             }
 
-            string sql = $"SELECT CODE_CL, PASSWORD_CL from Client WHERE NOMER_PASP_CL = '{login}'";
+            sql = $"SELECT password from client_pass WHERE login = '{login}'";
+            string clientPassword = SQLManager.GetStringValue(sql, 0);
+            sql = $"SELECT CODE_CL from Client WHERE TELEFON_CL = '{login}'";
             int clientCode = SQLManager.GetIntValue(sql, 0);
-            string clientPassword = SQLManager.GetStringValue(sql, 1);
 
             if (clientCode == -1)
             {
