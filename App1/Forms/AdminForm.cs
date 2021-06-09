@@ -681,5 +681,19 @@ namespace App1.Forms
 
             UpdateAdminPasswordTable();
         }
+
+        private void addAdminBtn_Click(object sender, EventArgs e)
+        {
+            adminPasswordTable.Rows.Add();
+        }
+
+        private void deleteAdminBtn_Click(object sender, EventArgs e)
+        {
+            string sql = $"DELETE FROM admin_pass WHERE CODE_admpass = {adminPasswordTable[0, adminPasswordTable.SelectedCells[0].RowIndex].Value}";
+
+            SQLManager.ExecuteSQLCommand(sql);
+
+            UpdateAdminPasswordTable();
+        }
     }
 }

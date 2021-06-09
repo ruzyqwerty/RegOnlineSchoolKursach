@@ -103,6 +103,9 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnBtn = new System.Windows.Forms.Button();
+            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
+            this.addAdminBtn = new System.Windows.Forms.ToolStripButton();
+            this.deleteAdminBtn = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.clients.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -125,6 +128,7 @@ namespace App1.Forms
             ((System.ComponentModel.ISupportInitialize)(this.clientPasswordTable)).BeginInit();
             this.adminPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).BeginInit();
+            this.toolStrip6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -790,6 +794,7 @@ namespace App1.Forms
             // 
             // adminPassword
             // 
+            this.adminPassword.Controls.Add(this.toolStrip6);
             this.adminPassword.Controls.Add(this.adminPasswordTable);
             this.adminPassword.Location = new System.Drawing.Point(4, 25);
             this.adminPassword.Name = "adminPassword";
@@ -810,11 +815,11 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26,
             this.dataGridViewTextBoxColumn27});
-            this.adminPasswordTable.Location = new System.Drawing.Point(-2, 0);
+            this.adminPasswordTable.Location = new System.Drawing.Point(-2, 28);
             this.adminPasswordTable.Name = "adminPasswordTable";
             this.adminPasswordTable.RowHeadersWidth = 51;
             this.adminPasswordTable.RowTemplate.Height = 24;
-            this.adminPasswordTable.Size = new System.Drawing.Size(881, 384);
+            this.adminPasswordTable.Size = new System.Drawing.Size(881, 356);
             this.adminPasswordTable.TabIndex = 3;
             this.adminPasswordTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminPasswordTable_CellEndEdit);
             // 
@@ -848,6 +853,36 @@ namespace App1.Forms
             this.returnBtn.Text = "Вернуться на окно входа";
             this.returnBtn.UseVisualStyleBackColor = true;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
+            // 
+            // toolStrip6
+            // 
+            this.toolStrip6.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addAdminBtn,
+            this.deleteAdminBtn});
+            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip6.Name = "toolStrip6";
+            this.toolStrip6.Size = new System.Drawing.Size(877, 27);
+            this.toolStrip6.TabIndex = 4;
+            this.toolStrip6.Text = "toolStrip6";
+            // 
+            // addAdminBtn
+            // 
+            this.addAdminBtn.Image = ((System.Drawing.Image)(resources.GetObject("addAdminBtn.Image")));
+            this.addAdminBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addAdminBtn.Name = "addAdminBtn";
+            this.addAdminBtn.Size = new System.Drawing.Size(157, 28);
+            this.addAdminBtn.Text = "Добавить админа";
+            this.addAdminBtn.Click += new System.EventHandler(this.addAdminBtn_Click);
+            // 
+            // deleteAdminBtn
+            // 
+            this.deleteAdminBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteAdminBtn.Image")));
+            this.deleteAdminBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteAdminBtn.Name = "deleteAdminBtn";
+            this.deleteAdminBtn.Size = new System.Drawing.Size(146, 24);
+            this.deleteAdminBtn.Text = "Удалить админа";
+            this.deleteAdminBtn.Click += new System.EventHandler(this.deleteAdminBtn_Click);
             // 
             // AdminForm
             // 
@@ -892,7 +927,10 @@ namespace App1.Forms
             this.clientPassword.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientPasswordTable)).EndInit();
             this.adminPassword.ResumeLayout(false);
+            this.adminPassword.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).EndInit();
+            this.toolStrip6.ResumeLayout(false);
+            this.toolStrip6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -972,5 +1010,8 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.ToolStrip toolStrip6;
+        private System.Windows.Forms.ToolStripButton addAdminBtn;
+        private System.Windows.Forms.ToolStripButton deleteAdminBtn;
     }
 }
