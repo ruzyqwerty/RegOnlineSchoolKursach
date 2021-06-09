@@ -13,10 +13,15 @@ namespace App1.Forms
     public partial class AdminForm : Form
     {
         private SQLManager SQLManager = new SQLManager();
+        private LoginForm loginForm;
 
-        public AdminForm()
+        private bool isExit = true;
+
+        public AdminForm(LoginForm form)
         {
             InitializeComponent();
+
+            loginForm = form;
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -484,7 +489,16 @@ namespace App1.Forms
 
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (isExit)
+                Application.Exit();
+        }
+
+        private void returnBtn_Click(object sender, EventArgs e)
+        {
+            isExit = false;
+            loginForm.SwitchVisible();
+            loginForm.Show();
+            this.Close();
         }
     }
 }

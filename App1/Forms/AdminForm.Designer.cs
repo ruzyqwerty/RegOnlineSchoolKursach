@@ -36,6 +36,13 @@ namespace App1.Forms
             this.addClientToolButton = new System.Windows.Forms.ToolStripButton();
             this.deleteClientToolButton = new System.Windows.Forms.ToolStripButton();
             this.clientsTable = new System.Windows.Forms.DataGridView();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Договоры = new System.Windows.Forms.TabPage();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.editDogovorToolButton = new System.Windows.Forms.ToolStripButton();
@@ -88,13 +95,7 @@ namespace App1.Forms
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returnBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Клиенты.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -117,17 +118,19 @@ namespace App1.Forms
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.Клиенты);
             this.tabControl1.Controls.Add(this.Договоры);
             this.tabControl1.Controls.Add(this.Курсы);
             this.tabControl1.Controls.Add(this.Организации);
             this.tabControl1.Controls.Add(this.Преподаватели);
             this.tabControl1.Controls.Add(this.Журнал);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(800, 450);
+            this.tabControl1.Size = new System.Drawing.Size(800, 414);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -138,7 +141,7 @@ namespace App1.Forms
             this.Клиенты.Location = new System.Drawing.Point(4, 25);
             this.Клиенты.Name = "Клиенты";
             this.Клиенты.Padding = new System.Windows.Forms.Padding(3);
-            this.Клиенты.Size = new System.Drawing.Size(792, 421);
+            this.Клиенты.Size = new System.Drawing.Size(792, 385);
             this.Клиенты.TabIndex = 0;
             this.Клиенты.Text = "Клиенты";
             this.Клиенты.UseVisualStyleBackColor = true;
@@ -193,9 +196,57 @@ namespace App1.Forms
             this.clientsTable.Name = "clientsTable";
             this.clientsTable.RowHeadersWidth = 51;
             this.clientsTable.RowTemplate.Height = 24;
-            this.clientsTable.Size = new System.Drawing.Size(796, 392);
+            this.clientsTable.Size = new System.Drawing.Size(796, 356);
             this.clientsTable.TabIndex = 0;
             this.clientsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsTable_CellEndEdit);
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "ID";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Имя";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 64;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Фамилия";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 99;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Отчество";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Телефон";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 97;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Номер паспорта";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 134;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Пароль";
+            this.Column15.MinimumWidth = 6;
+            this.Column15.Name = "Column15";
+            this.Column15.Width = 86;
             // 
             // Договоры
             // 
@@ -695,59 +746,22 @@ namespace App1.Forms
             this.Column14.Name = "Column14";
             this.Column14.Width = 127;
             // 
-            // Column6
+            // returnBtn
             // 
-            this.Column6.HeaderText = "ID";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Имя";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 64;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Фамилия";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 99;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Отчество";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Телефон";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 97;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Номер паспорта";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 134;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Пароль";
-            this.Column15.MinimumWidth = 6;
-            this.Column15.Name = "Column15";
-            this.Column15.Width = 86;
+            this.returnBtn.Location = new System.Drawing.Point(595, 420);
+            this.returnBtn.Name = "returnBtn";
+            this.returnBtn.Size = new System.Drawing.Size(193, 35);
+            this.returnBtn.TabIndex = 1;
+            this.returnBtn.Text = "Вернуться на окно входа";
+            this.returnBtn.UseVisualStyleBackColor = true;
+            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 464);
+            this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AdminForm";
@@ -853,5 +867,6 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.Button returnBtn;
     }
 }

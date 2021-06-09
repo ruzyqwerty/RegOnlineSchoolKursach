@@ -14,16 +14,22 @@ namespace App1.Forms
     {
         private SQLManager SQLManager = new SQLManager();
 
+        private LoginForm loginForm;
+
+        private bool isExit = true;
+
         private int currentClient;
 
         private int priceSort = 0;
         private int chasovSort = 0;
 
-        public ClientForm(int clientId)
+        public ClientForm(int clientId, LoginForm form)
         {
             InitializeComponent();
 
             currentClient = clientId;
+
+            loginForm = form;
 
             kursTable.ReadOnly = true;
             dogovorTable.ReadOnly = true;
@@ -161,7 +167,16 @@ namespace App1.Forms
 
         private void ClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (isExit)
+                Application.Exit();
+        }
+
+        private void returnBtn_Click(object sender, EventArgs e)
+        {
+            isExit = false;
+            loginForm.SwitchVisible();
+            loginForm.Show();
+            this.Close();
         }
     }
 }
