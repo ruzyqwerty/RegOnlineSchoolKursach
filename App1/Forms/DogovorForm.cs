@@ -7,8 +7,10 @@ namespace App1.Forms
 {
     public partial class DogovorForm : Form
     {
+        // переменная для работы с бд
         private SQLManager SQLManager = new SQLManager();
 
+        // переменные хранящие инфу о клиенте, курсе и организации (если это редактирование)
         private int codeOrg;
         private int codeClient;
         private int codeKurs;
@@ -16,8 +18,6 @@ namespace App1.Forms
         public DogovorForm(int clientId, int kursId)
         {
             InitializeComponent();
-
-            //вывести инфу пользователю
 
             DataTable dataTable = SQLManager.GetDataTable("Kurs");
 
@@ -59,16 +59,13 @@ namespace App1.Forms
             codeClient = clientId;
         }
 
-        private void DogovorForm_Load(object sender, EventArgs e)
-        {
-            //добавить договор в бд
-        }
-
+        // отмена оформления договора
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // оформление договора
         private void acceptBtn_Click(object sender, EventArgs e)
         {
             string sql = "INSERT INTO Dogovor (CODE_ORG, CODE_CL, CODE_CY, DATA) ";

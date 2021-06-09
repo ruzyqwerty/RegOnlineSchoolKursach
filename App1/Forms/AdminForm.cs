@@ -8,11 +8,16 @@ namespace App1.Forms
 {
     public partial class AdminForm : Form
     {
+        // переменная для работы с бд
         private SQLManager SQLManager = new SQLManager();
+
+        // форма входа (чтобы закрыть её или вернуться к ней)
         private LoginForm loginForm;
 
+        // переменная помогающая определить, закрываем мы форму или возращаемся ко входу
         private bool isExit = true;
 
+        // переменная для хранения старого телефона у клиента
         private string oldValue = "";
 
         public AdminForm(LoginForm form)
@@ -22,6 +27,7 @@ namespace App1.Forms
             loginForm = form;
         }
 
+        // выключаем редактирование первых колонок у таблиц (ID)
         private void AdminForm_Load(object sender, EventArgs e)
         {
             clientsTable.Columns[0].ReadOnly = true;
@@ -32,6 +38,7 @@ namespace App1.Forms
             historyTable.Columns[0].ReadOnly = true;
             clientPasswordTable.Columns[0].ReadOnly = true;
             clientPasswordTable.Columns[1].ReadOnly = true;
+            adminPasswordTable.Columns[0].ReadOnly = true;
 
             UpdateClientTable();
             UpdateOrgsTable();
@@ -43,6 +50,7 @@ namespace App1.Forms
             UpdateAdminPasswordTable();
         }
 
+        // обновление таблицы клиентов
         private void UpdateClientTable()
         {
             try
@@ -69,6 +77,8 @@ namespace App1.Forms
 
         }
 
+        // событие при редактирование клетки в таблице клиентов (если новая строка добавляем в бд,
+        // если старая, то обновляем
         private void clientsTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string sql;
@@ -134,6 +144,7 @@ namespace App1.Forms
             UpdateClientTable();
         }
 
+        // запоминаем старый номер телефона
         private void clientsTable_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             if (e.ColumnIndex == 4)
@@ -143,6 +154,7 @@ namespace App1.Forms
             }
         }
 
+        // получаем название колонок как в бд для таблицы клиентов
         private string GetClientColumnName(string name)
         {
             string header = "";
@@ -172,11 +184,13 @@ namespace App1.Forms
             return header;
         }
 
+        // добавление клиента
         private void addClientToolButton_Click(object sender, EventArgs e)
         {
             clientsTable.Rows.Add();
         }
 
+        // удаление клиента
         private void deleteClientToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"SELECT TELEFON_CL From Client WHERE CODE_CL = {clientsTable[0, clientsTable.SelectedCells[0].RowIndex].Value}";
@@ -194,6 +208,7 @@ namespace App1.Forms
             UpdateClientTable();
         }
 
+        // обновление таблицы организаций
         private void UpdateOrgsTable()
         {
             try
@@ -218,6 +233,8 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // событие при редактирование клетки в таблице организаций (если новая строка добавляем в бд,
+        // если старая, то обновляем
         private void orgsTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string sql;
@@ -258,6 +275,7 @@ namespace App1.Forms
             UpdateOrgsTable();
         }
 
+        // получаем название колонок как в бд для таблицы организаций
         private string GetOrgColumnName(string name)
         {
             string header = "";
@@ -281,11 +299,13 @@ namespace App1.Forms
             return header;
         }
 
+        // добавление организации
         private void addOrgToolButton_Click(object sender, EventArgs e)
         {
             orgsTable.Rows.Add();
         }
 
+        // удаление организации
         private void deleteOrgToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Organizatsia WHERE CODE_ORG = {orgsTable[0, orgsTable.SelectedCells[0].RowIndex].Value}";
@@ -295,6 +315,7 @@ namespace App1.Forms
             UpdateOrgsTable();
         }
 
+        // обновление таблицы преподов
         private void UpdatePrepodsTable()
         {
             try
@@ -321,6 +342,8 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // событие при редактирование клетки в таблице преподов (если новая строка добавляем в бд,
+        // если старая, то обновляем
         private void prepodsTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string sql;
@@ -361,6 +384,7 @@ namespace App1.Forms
             UpdatePrepodsTable();
         }
 
+        // получаем название колонок как в бд для таблицы преподов
         private string GetPrepodColumnName(string name)
         {
             string header = "";
@@ -390,11 +414,13 @@ namespace App1.Forms
             return header;
         }
 
+        // добавление препода
         private void addPrepodToolButton_Click(object sender, EventArgs e)
         {
             prepodsTable.Rows.Add();
         }
 
+        // удаление препода
         private void deletePrepodToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Prepodavateli WHERE CODE_PD = {prepodsTable[0, prepodsTable.SelectedCells[0].RowIndex].Value}";
@@ -404,6 +430,7 @@ namespace App1.Forms
             UpdatePrepodsTable();
         }
 
+        // обновление таблицы курсов
         private void UpdateKursTable()
         {
             try
@@ -439,6 +466,7 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // удаление курса
         private void deleteKursToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Kurs WHERE CODE_CY = {kurssTable[0, kurssTable.SelectedCells[0].RowIndex].Value}";
@@ -448,6 +476,7 @@ namespace App1.Forms
             UpdateKursTable();
         }
 
+        // событие при смене вкладки (обновляем все таблицы)
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateClientTable();
@@ -460,6 +489,7 @@ namespace App1.Forms
             UpdateAdminPasswordTable();
         }
 
+        // добавление курса
         private void addKursToolButton_Click(object sender, EventArgs e)
         {
             KursForm kursForm = new KursForm();
@@ -468,6 +498,7 @@ namespace App1.Forms
             UpdateKursTable();
         }
 
+        // изменение курса
         private void editKursToolButton_Click(object sender, EventArgs e)
         {
             int kursId = (int)kurssTable[0, kurssTable.SelectedCells[0].RowIndex].Value;
@@ -478,6 +509,7 @@ namespace App1.Forms
             UpdateKursTable();
         }
 
+        // обновление таблицы журнала
         private void UpdateHistotyTable()
         {
             try
@@ -501,6 +533,7 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // обновление таблицы договоров
         private void UpdateDogovorTable()
         {
             try
@@ -537,6 +570,7 @@ namespace App1.Forms
 
         }
 
+        // удаление договора
         private void deleteDogovorToolButton_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM Dogovor WHERE CODE_DOG = {dogovorTable[0, dogovorTable.SelectedCells[0].RowIndex].Value}";
@@ -546,6 +580,7 @@ namespace App1.Forms
             UpdateDogovorTable();
         }
 
+        // добавление договора
         private void editDogovorToolButton_Click(object sender, EventArgs e)
         {
             int kursId = (int)dogovorTable[0, dogovorTable.SelectedCells[0].RowIndex].Value;
@@ -556,12 +591,14 @@ namespace App1.Forms
             UpdateDogovorTable();
         }
 
+        // событие закрытия формы
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isExit)
                 Application.Exit();
         }
 
+        // кнопка возращения к окну входа
         private void returnBtn_Click(object sender, EventArgs e)
         {
             isExit = false;
@@ -570,6 +607,7 @@ namespace App1.Forms
             this.Close();
         }
 
+        // обновление таблицы паролей клиентов
         private void UpdateClientPasswordTable()
         {
             try
@@ -592,6 +630,7 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // событие при редактирование клетки в таблице паролей клиентов
         private void clientPasswordTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string sql;
@@ -603,6 +642,7 @@ namespace App1.Forms
             UpdateClientPasswordTable();
         }
 
+        // получаем название колонок как в бд для таблицы паролей
         private string GetPasswordColumnName(string name)
         {
             string header = "";
@@ -620,6 +660,7 @@ namespace App1.Forms
             return header;
         }
 
+        // обновление таблицы паролей админа
         private void UpdateAdminPasswordTable()
         {
             try
@@ -642,6 +683,8 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // событие при редактирование клетки в таблице паролей админов (если новая строка добавляем в бд,
+        // если старая, то обновляем
         private void adminPasswordTable_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             string sql;
@@ -682,11 +725,13 @@ namespace App1.Forms
             UpdateAdminPasswordTable();
         }
 
+        // добавление пароля админа
         private void addAdminBtn_Click(object sender, EventArgs e)
         {
             adminPasswordTable.Rows.Add();
         }
 
+        // удаление пароля админа
         private void deleteAdminBtn_Click(object sender, EventArgs e)
         {
             string sql = $"DELETE FROM admin_pass WHERE CODE_admpass = {adminPasswordTable[0, adminPasswordTable.SelectedCells[0].RowIndex].Value}";

@@ -286,7 +286,6 @@ namespace App1.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DogovorForm";
             this.Text = "Окно договора";
-            this.Load += new System.EventHandler(this.DogovorForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

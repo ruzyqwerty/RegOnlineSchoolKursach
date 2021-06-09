@@ -6,8 +6,10 @@ namespace App1.Forms
 {
     public partial class LoginForm : Form
     {
+        // переменная для работы с бд
         private SQLManager SQLManager = new SQLManager();
 
+        // переменная-флажок отвечающая за вход под админом
         private bool isAdmin = false;
 
         public LoginForm()
@@ -15,6 +17,7 @@ namespace App1.Forms
             InitializeComponent();
         }
 
+        // вход (с логином и паролем)
         private void loginBtn_Click(object sender, EventArgs e)
         {
             string login = loginTextBox.Text;
@@ -74,6 +77,7 @@ namespace App1.Forms
             groupBox1.Visible = false;
         }
 
+        // выбор роли админа
         private void adminRoleBtn_Click(object sender, EventArgs e)
         {
             groupBox2.Visible = false;
@@ -81,6 +85,7 @@ namespace App1.Forms
             isAdmin = true;
         }
 
+        // выбор роли клиента
         private void clientRoleBtn_Click(object sender, EventArgs e)
         {
             groupBox2.Visible = false;
@@ -88,6 +93,7 @@ namespace App1.Forms
             isAdmin = false;
         }
 
+        // обновление окна входа
         public void SwitchVisible()
         {
             groupBox2.Visible = !groupBox2.Visible;

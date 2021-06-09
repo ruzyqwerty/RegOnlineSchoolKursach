@@ -8,14 +8,19 @@ namespace App1.Forms
 {
     public partial class ClientForm : Form
     {
+        // переменная для работы с бд
         private SQLManager SQLManager = new SQLManager();
 
+        // переменная для хранения формы входа
         private LoginForm loginForm;
 
+        // переменная помогающая определить выходим мы из программы или нет
         private bool isExit = true;
 
+        // ID текущего клиента
         private int currentClient;
 
+        // переменные для сортировки
         private int priceSort = 0;
         private int chasovSort = 0;
 
@@ -37,6 +42,7 @@ namespace App1.Forms
             UpdateDogovorTable();
         }
 
+        // обновление таблиц курсов
         private void UpdateKursTable()
         {
             try
@@ -88,6 +94,7 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // оформление договора
         private void oformitDogovor_Click(object sender, EventArgs e)
         {
             string kursName = kursTable.SelectedRows[0].Cells[0].Value.ToString();
@@ -99,12 +106,14 @@ namespace App1.Forms
             dogovorForm.ShowDialog();
         }
 
+        // событие при переключение вкладок (обновлние таблиц)
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateKursTable();
             UpdateDogovorTable();
         }
 
+        // обновление таблиц договоров
         private void UpdateDogovorTable()
         {
             try
@@ -143,6 +152,7 @@ namespace App1.Forms
             catch (Exception) { }
         }
 
+        // сортировка по цене
         private void priceSortBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -156,6 +166,7 @@ namespace App1.Forms
             UpdateKursTable();
         }
 
+        // сортировка по часам
         private void chasovSortBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -169,12 +180,14 @@ namespace App1.Forms
             UpdateKursTable();
         }
 
+        // событие закрытия формы
         private void ClientForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isExit)
                 Application.Exit();
         }
 
+        // возращение к окну входа
         private void returnBtn_Click(object sender, EventArgs e)
         {
             isExit = false;

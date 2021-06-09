@@ -14,6 +14,7 @@ namespace App1.SQL
             connectionString = "Server = localhost\\SQLEXPRESS; Database = RegOnlineSchool; Trusted_Connection = True;";
         }
 
+        // получаем строку из SQL-запроса под номером columnIndex
         public virtual string GetStringValue(string sql, int columnIndex)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -37,6 +38,7 @@ namespace App1.SQL
             }
         }
 
+        // получаем время из SQL-запроса под номером columnIndex
         public virtual DateTime GetDataTimeValue(string sql, int columnIndex)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -60,6 +62,7 @@ namespace App1.SQL
             }
         }
 
+        // получаем деньги из SQL-запроса под номером columnIndex
         public virtual decimal GetMoneyValue(string sql, int columnIndex)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -83,6 +86,7 @@ namespace App1.SQL
             }
         }
 
+        // получаем целое число из SQL-запроса под номером columnIndex
         public virtual int GetIntValue(string sql, int columnIndex)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -106,6 +110,7 @@ namespace App1.SQL
             }
         }
 
+        // получаем список ключей из SQL-запроса
         public virtual List<int> GetKeysValues(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -132,6 +137,7 @@ namespace App1.SQL
             }
         }
 
+        // получаем спислк строк из SQL-запроса
         public virtual List<string> GetStringValues(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -162,6 +168,7 @@ namespace App1.SQL
             }
         }
 
+        // выполняем sql-запрос
         public object ExecuteSQLCommand(string sql)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -180,6 +187,7 @@ namespace App1.SQL
             return null;
         }
 
+        // получаем целую таблицу по её названию
         public virtual DataTable GetDataTable(string tableName)
         {
             string sql = "SELECT * FROM " + tableName;

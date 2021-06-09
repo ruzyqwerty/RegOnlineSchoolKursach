@@ -7,8 +7,11 @@ namespace App1.Forms
 {
     public partial class EditDogovorForm : Form
     {
-        private int currentDogovor = -1;
+        // переменная для работы с бд
         private SQLManager SQLManager = new SQLManager();
+
+        // переменная хранящая текущий договор
+        private int currentDogovor = -1;
 
         public EditDogovorForm(int dogovorId)
         {
@@ -19,6 +22,7 @@ namespace App1.Forms
             UpdateForm();
         }
 
+        // обновление инфы о договоре
         private void UpdateForm()
         {
             string sql = $"SELECT CODE_ORG, CODE_CL, CODE_CY, DATA from Dogovor WHERE CODE_DOG = {currentDogovor}";
@@ -86,11 +90,13 @@ namespace App1.Forms
             dataCreateCalendar.SetDate(date);
         }
 
+        // отмена изменений
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        // принятие изменений
         private void editBtn_Click(object sender, EventArgs e)
         {
             string sql = $"SELECT CODE_ORG from Organizatsia WHERE NAME_ORG = '{orgNameComboBox.SelectedItem}'";

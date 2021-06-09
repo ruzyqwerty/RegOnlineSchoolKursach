@@ -30,6 +30,7 @@ namespace App1.Forms
             else UpdateEditForm();
         }
 
+        // обновление окна для добавление курса
         private void UpdateAddForm()
         {
             string sql = $"SELECT NAME_ORG from Organizatsia";
@@ -65,6 +66,7 @@ namespace App1.Forms
             AcceptBtn.Text = "Добавить";
         }
 
+        // обновление окна для редактирования курса
         private void UpdateEditForm()
         {
             string sql = $"SELECT CODE_ORG, CODE_PD, NAME_KURS, CHASOV, PRICE from Kurs WHERE CODE_CY = {currentKurs}";
@@ -119,11 +121,13 @@ namespace App1.Forms
             priceNumUD.Value = price;
         }
 
+        // отмена добавления / изменения
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // принятие добавления / изменения
         private void AcceptBtn_Click(object sender, EventArgs e)
         {
             if (currentKurs == -1)
@@ -133,6 +137,7 @@ namespace App1.Forms
             this.Close();
         }
 
+        // добавляем курс
         private void AddKurs()
         {
             string sql = $"SELECT CODE_ORG from Organizatsia WHERE NAME_ORG = '{orgNameComboBox.SelectedItem}'";
@@ -149,6 +154,7 @@ namespace App1.Forms
             SQLManager.ExecuteSQLCommand(sql);
         }
 
+        // вносим изменения в курс
         private void EditKurs()
         {
             string sql = $"SELECT CODE_ORG from Organizatsia WHERE NAME_ORG = '{orgNameComboBox.SelectedItem}'";
