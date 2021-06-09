@@ -426,9 +426,7 @@ namespace App1.Forms
                 historyTable.Rows[i].Cells[0].Value = row["CODE_HIS"];
                 historyTable.Rows[i].Cells[1].Value = row["CODE_DL"];
                 historyTable.Rows[i].Cells[2].Value = row["Operation"];
-                historyTable.Rows[i].Cells[3].Value = row["FamCL"];
-                historyTable.Rows[i].Cells[4].Value = row["NameKurs"];
-                historyTable.Rows[i].Cells[5].Value = row["delete_date"];
+                historyTable.Rows[i].Cells[3].Value = row["delete_date"];
             }
         }
 

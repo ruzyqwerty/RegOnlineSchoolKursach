@@ -89,13 +89,11 @@ namespace App1.Forms
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Журнал = new System.Windows.Forms.TabPage();
             this.historyTable = new System.Windows.Forms.DataGridView();
+            this.returnBtn = new System.Windows.Forms.Button();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returnBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Клиенты.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -255,7 +253,7 @@ namespace App1.Forms
             this.Договоры.Location = new System.Drawing.Point(4, 25);
             this.Договоры.Name = "Договоры";
             this.Договоры.Padding = new System.Windows.Forms.Padding(3);
-            this.Договоры.Size = new System.Drawing.Size(792, 421);
+            this.Договоры.Size = new System.Drawing.Size(792, 385);
             this.Договоры.TabIndex = 1;
             this.Договоры.Text = "Договоры";
             this.Договоры.UseVisualStyleBackColor = true;
@@ -353,7 +351,7 @@ namespace App1.Forms
             this.Курсы.Controls.Add(this.kurssTable);
             this.Курсы.Location = new System.Drawing.Point(4, 25);
             this.Курсы.Name = "Курсы";
-            this.Курсы.Size = new System.Drawing.Size(792, 421);
+            this.Курсы.Size = new System.Drawing.Size(792, 385);
             this.Курсы.TabIndex = 2;
             this.Курсы.Text = "Курсы";
             this.Курсы.UseVisualStyleBackColor = true;
@@ -468,7 +466,7 @@ namespace App1.Forms
             this.Организации.Controls.Add(this.orgsTable);
             this.Организации.Location = new System.Drawing.Point(4, 25);
             this.Организации.Name = "Организации";
-            this.Организации.Size = new System.Drawing.Size(792, 421);
+            this.Организации.Size = new System.Drawing.Size(792, 385);
             this.Организации.TabIndex = 3;
             this.Организации.Text = "Организации";
             this.Организации.UseVisualStyleBackColor = true;
@@ -566,7 +564,7 @@ namespace App1.Forms
             this.Преподаватели.Controls.Add(this.prepodsTable);
             this.Преподаватели.Location = new System.Drawing.Point(4, 25);
             this.Преподаватели.Name = "Преподаватели";
-            this.Преподаватели.Size = new System.Drawing.Size(792, 421);
+            this.Преподаватели.Size = new System.Drawing.Size(792, 385);
             this.Преподаватели.TabIndex = 4;
             this.Преподаватели.Text = "Преподаватели";
             this.Преподаватели.UseVisualStyleBackColor = true;
@@ -678,7 +676,7 @@ namespace App1.Forms
             this.Журнал.Controls.Add(this.historyTable);
             this.Журнал.Location = new System.Drawing.Point(4, 25);
             this.Журнал.Name = "Журнал";
-            this.Журнал.Size = new System.Drawing.Size(792, 421);
+            this.Журнал.Size = new System.Drawing.Size(792, 385);
             this.Журнал.TabIndex = 5;
             this.Журнал.Text = "Журнал";
             this.Журнал.UseVisualStyleBackColor = true;
@@ -693,16 +691,24 @@ namespace App1.Forms
             this.Column12,
             this.Column9,
             this.Column10,
-            this.Column11,
-            this.Column13,
             this.Column14});
             this.historyTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.historyTable.Location = new System.Drawing.Point(0, 0);
             this.historyTable.Name = "historyTable";
             this.historyTable.RowHeadersWidth = 51;
             this.historyTable.RowTemplate.Height = 24;
-            this.historyTable.Size = new System.Drawing.Size(792, 421);
+            this.historyTable.Size = new System.Drawing.Size(792, 385);
             this.historyTable.TabIndex = 0;
+            // 
+            // returnBtn
+            // 
+            this.returnBtn.Location = new System.Drawing.Point(595, 420);
+            this.returnBtn.Name = "returnBtn";
+            this.returnBtn.Size = new System.Drawing.Size(193, 35);
+            this.returnBtn.TabIndex = 1;
+            this.returnBtn.Text = "Вернуться на окно входа";
+            this.returnBtn.UseVisualStyleBackColor = true;
+            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // Column12
             // 
@@ -716,7 +722,7 @@ namespace App1.Forms
             this.Column9.HeaderText = "ID договора";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
-            this.Column9.Width = 105;
+            this.Column9.Width = 114;
             // 
             // Column10
             // 
@@ -725,36 +731,12 @@ namespace App1.Forms
             this.Column10.Name = "Column10";
             this.Column10.Width = 104;
             // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "Фамилия клиента";
-            this.Column11.MinimumWidth = 6;
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 144;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "Название курса";
-            this.Column13.MinimumWidth = 6;
-            this.Column13.Name = "Column13";
-            this.Column13.Width = 130;
-            // 
             // Column14
             // 
             this.Column14.HeaderText = "Дата удаления";
             this.Column14.MinimumWidth = 6;
             this.Column14.Name = "Column14";
             this.Column14.Width = 127;
-            // 
-            // returnBtn
-            // 
-            this.returnBtn.Location = new System.Drawing.Point(595, 420);
-            this.returnBtn.Name = "returnBtn";
-            this.returnBtn.Size = new System.Drawing.Size(193, 35);
-            this.returnBtn.TabIndex = 1;
-            this.returnBtn.Text = "Вернуться на окно входа";
-            this.returnBtn.UseVisualStyleBackColor = true;
-            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // AdminForm
             // 
@@ -848,12 +830,6 @@ namespace App1.Forms
         private System.Windows.Forms.ToolStripButton editKursToolButton;
         private System.Windows.Forms.TabPage Журнал;
         private System.Windows.Forms.DataGridView historyTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -868,5 +844,9 @@ namespace App1.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.Button returnBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
     }
 }
