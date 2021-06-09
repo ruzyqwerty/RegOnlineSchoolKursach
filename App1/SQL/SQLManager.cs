@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -23,9 +22,9 @@ namespace App1.SQL
             //ExecuteSQLCommand(sql);
 
             sql = "Create table Client (" +
-                "CODE_CL integer primary key identity(1,1) not null," + 
-                "IMYA_CL varchar(50) not null," + 
-                "FAM_CL varchar(50) not null," + 
+                "CODE_CL integer primary key identity(1,1) not null," +
+                "IMYA_CL varchar(50) not null," +
+                "FAM_CL varchar(50) not null," +
                 "OTCH_CL varchar(50) not null," +
                 "TELEFON_CL varchar(50) not null," +
                 "NOMER_PASP_CL varchar(50) not null," +
@@ -194,7 +193,7 @@ namespace App1.SQL
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception) {}
+                catch (Exception) { }
             }
         }
 
@@ -215,7 +214,7 @@ namespace App1.SQL
                 return DataSet.Tables[0];
             }
 
-            
+
         }
     }
 }

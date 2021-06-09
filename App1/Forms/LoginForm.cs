@@ -1,11 +1,5 @@
 ﻿using App1.SQL;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace App1.Forms
@@ -23,7 +17,7 @@ namespace App1.Forms
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            string login =  loginTextBox.Text;
+            string login = loginTextBox.Text;
             string password = passwordTextBox.Text;
 
             string sql;
@@ -61,7 +55,7 @@ namespace App1.Forms
             {
                 MessageBox.Show("Неправильный логин", "Ошибка", MessageBoxButtons.OK);
                 return;
-            } 
+            }
 
             if (string.IsNullOrEmpty(password) || password != clientPassword)
             {
