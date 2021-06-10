@@ -740,5 +740,16 @@ namespace App1.Forms
 
             UpdateAdminPasswordTable();
         }
+
+        // подсчёт прибыли за все договоры
+        private void getEarningBtn_Click(object sender, EventArgs e)
+        {
+            string sql = "select * from Total();";
+
+            int dogovorsCount = SQLManager.GetIntValue(sql, 0);
+            decimal dogovorsEarnings = SQLManager.GetMoneyValue(sql, 1);
+
+            MessageBox.Show($"Прибыль за {dogovorsCount} договора(ов) составила {dogovorsEarnings}", "Информация о прибыле", MessageBoxButtons.OK);
+        }
     }
 }

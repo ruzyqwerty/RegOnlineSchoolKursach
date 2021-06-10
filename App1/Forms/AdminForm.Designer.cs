@@ -98,14 +98,15 @@ namespace App1.Forms
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminPassword = new System.Windows.Forms.TabPage();
+            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
+            this.addAdminBtn = new System.Windows.Forms.ToolStripButton();
+            this.deleteAdminBtn = new System.Windows.Forms.ToolStripButton();
             this.adminPasswordTable = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnBtn = new System.Windows.Forms.Button();
-            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
-            this.addAdminBtn = new System.Windows.Forms.ToolStripButton();
-            this.deleteAdminBtn = new System.Windows.Forms.ToolStripButton();
+            this.getEarningBtn = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.clients.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -127,8 +128,8 @@ namespace App1.Forms
             this.clientPassword.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientPasswordTable)).BeginInit();
             this.adminPassword.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).BeginInit();
             this.toolStrip6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -177,19 +178,21 @@ namespace App1.Forms
             // 
             // addClientToolButton
             // 
+            this.addClientToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.addClientToolButton.Image = ((System.Drawing.Image)(resources.GetObject("addClientToolButton.Image")));
             this.addClientToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addClientToolButton.Name = "addClientToolButton";
-            this.addClientToolButton.Size = new System.Drawing.Size(159, 24);
+            this.addClientToolButton.Size = new System.Drawing.Size(139, 24);
             this.addClientToolButton.Text = "Добавить клиента";
             this.addClientToolButton.Click += new System.EventHandler(this.addClientToolButton_Click);
             // 
             // deleteClientToolButton
             // 
+            this.deleteClientToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.deleteClientToolButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteClientToolButton.Image")));
             this.deleteClientToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteClientToolButton.Name = "deleteClientToolButton";
-            this.deleteClientToolButton.Size = new System.Drawing.Size(148, 24);
+            this.deleteClientToolButton.Size = new System.Drawing.Size(128, 24);
             this.deleteClientToolButton.Text = "Удалить клиента";
             this.deleteClientToolButton.Click += new System.EventHandler(this.deleteClientToolButton_Click);
             // 
@@ -275,28 +278,31 @@ namespace App1.Forms
             this.toolStrip4.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editDogovorToolButton,
-            this.deleteDogovorToolButton});
+            this.deleteDogovorToolButton,
+            this.getEarningBtn});
             this.toolStrip4.Location = new System.Drawing.Point(3, 3);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(871, 27);
+            this.toolStrip4.Size = new System.Drawing.Size(871, 31);
             this.toolStrip4.TabIndex = 3;
             this.toolStrip4.Text = "toolStrip4";
             // 
             // editDogovorToolButton
             // 
+            this.editDogovorToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.editDogovorToolButton.Image = ((System.Drawing.Image)(resources.GetObject("editDogovorToolButton.Image")));
             this.editDogovorToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.editDogovorToolButton.Name = "editDogovorToolButton";
-            this.editDogovorToolButton.Size = new System.Drawing.Size(164, 24);
+            this.editDogovorToolButton.Size = new System.Drawing.Size(144, 28);
             this.editDogovorToolButton.Text = "Изменить договор";
             this.editDogovorToolButton.Click += new System.EventHandler(this.editDogovorToolButton_Click);
             // 
             // deleteDogovorToolButton
             // 
+            this.deleteDogovorToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.deleteDogovorToolButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteDogovorToolButton.Image")));
             this.deleteDogovorToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteDogovorToolButton.Name = "deleteDogovorToolButton";
-            this.deleteDogovorToolButton.Size = new System.Drawing.Size(178, 24);
+            this.deleteDogovorToolButton.Size = new System.Drawing.Size(158, 28);
             this.deleteDogovorToolButton.Text = "Расторгнуть договор";
             this.deleteDogovorToolButton.Click += new System.EventHandler(this.deleteDogovorToolButton_Click);
             // 
@@ -383,28 +389,31 @@ namespace App1.Forms
             // 
             // addKursToolButton
             // 
+            this.addKursToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.addKursToolButton.Image = ((System.Drawing.Image)(resources.GetObject("addKursToolButton.Image")));
             this.addKursToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addKursToolButton.Name = "addKursToolButton";
-            this.addKursToolButton.Size = new System.Drawing.Size(134, 24);
+            this.addKursToolButton.Size = new System.Drawing.Size(114, 24);
             this.addKursToolButton.Text = "Добавить курс";
             this.addKursToolButton.Click += new System.EventHandler(this.addKursToolButton_Click);
             // 
             // editKursToolButton
             // 
+            this.editKursToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.editKursToolButton.Image = ((System.Drawing.Image)(resources.GetObject("editKursToolButton.Image")));
             this.editKursToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.editKursToolButton.Name = "editKursToolButton";
-            this.editKursToolButton.Size = new System.Drawing.Size(136, 24);
+            this.editKursToolButton.Size = new System.Drawing.Size(116, 24);
             this.editKursToolButton.Text = "Изменить курс";
             this.editKursToolButton.Click += new System.EventHandler(this.editKursToolButton_Click);
             // 
             // deleteKursToolButton
             // 
+            this.deleteKursToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.deleteKursToolButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteKursToolButton.Image")));
             this.deleteKursToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteKursToolButton.Name = "deleteKursToolButton";
-            this.deleteKursToolButton.Size = new System.Drawing.Size(123, 24);
+            this.deleteKursToolButton.Size = new System.Drawing.Size(103, 24);
             this.deleteKursToolButton.Text = "Удалить курс";
             this.deleteKursToolButton.Click += new System.EventHandler(this.deleteKursToolButton_Click);
             // 
@@ -497,19 +506,21 @@ namespace App1.Forms
             // 
             // addOrgToolButton
             // 
+            this.addOrgToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.addOrgToolButton.Image = ((System.Drawing.Image)(resources.GetObject("addOrgToolButton.Image")));
             this.addOrgToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addOrgToolButton.Name = "addOrgToolButton";
-            this.addOrgToolButton.Size = new System.Drawing.Size(199, 24);
+            this.addOrgToolButton.Size = new System.Drawing.Size(179, 24);
             this.addOrgToolButton.Text = "Добавить организацию";
             this.addOrgToolButton.Click += new System.EventHandler(this.addOrgToolButton_Click);
             // 
             // deleteOrgToolButton
             // 
+            this.deleteOrgToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.deleteOrgToolButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteOrgToolButton.Image")));
             this.deleteOrgToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteOrgToolButton.Name = "deleteOrgToolButton";
-            this.deleteOrgToolButton.Size = new System.Drawing.Size(188, 24);
+            this.deleteOrgToolButton.Size = new System.Drawing.Size(168, 24);
             this.deleteOrgToolButton.Text = "Удалить организацию";
             this.deleteOrgToolButton.Click += new System.EventHandler(this.deleteOrgToolButton_Click);
             // 
@@ -595,19 +606,21 @@ namespace App1.Forms
             // 
             // addPrepodToolButton
             // 
+            this.addPrepodToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.addPrepodToolButton.Image = ((System.Drawing.Image)(resources.GetObject("addPrepodToolButton.Image")));
             this.addPrepodToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addPrepodToolButton.Name = "addPrepodToolButton";
-            this.addPrepodToolButton.Size = new System.Drawing.Size(210, 24);
+            this.addPrepodToolButton.Size = new System.Drawing.Size(190, 24);
             this.addPrepodToolButton.Text = "Добавить преподавателя";
             this.addPrepodToolButton.Click += new System.EventHandler(this.addPrepodToolButton_Click);
             // 
             // deletePrepodToolButton
             // 
+            this.deletePrepodToolButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.deletePrepodToolButton.Image = ((System.Drawing.Image)(resources.GetObject("deletePrepodToolButton.Image")));
             this.deletePrepodToolButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deletePrepodToolButton.Name = "deletePrepodToolButton";
-            this.deletePrepodToolButton.Size = new System.Drawing.Size(199, 24);
+            this.deletePrepodToolButton.Size = new System.Drawing.Size(179, 24);
             this.deletePrepodToolButton.Text = "Удалить преподавателя";
             this.deletePrepodToolButton.Click += new System.EventHandler(this.deletePrepodToolButton_Click);
             // 
@@ -803,6 +816,38 @@ namespace App1.Forms
             this.adminPassword.Text = "Пароли админов";
             this.adminPassword.UseVisualStyleBackColor = true;
             // 
+            // toolStrip6
+            // 
+            this.toolStrip6.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addAdminBtn,
+            this.deleteAdminBtn});
+            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip6.Name = "toolStrip6";
+            this.toolStrip6.Size = new System.Drawing.Size(877, 27);
+            this.toolStrip6.TabIndex = 4;
+            this.toolStrip6.Text = "toolStrip6";
+            // 
+            // addAdminBtn
+            // 
+            this.addAdminBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.addAdminBtn.Image = ((System.Drawing.Image)(resources.GetObject("addAdminBtn.Image")));
+            this.addAdminBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.addAdminBtn.Name = "addAdminBtn";
+            this.addAdminBtn.Size = new System.Drawing.Size(137, 24);
+            this.addAdminBtn.Text = "Добавить админа";
+            this.addAdminBtn.Click += new System.EventHandler(this.addAdminBtn_Click);
+            // 
+            // deleteAdminBtn
+            // 
+            this.deleteAdminBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.deleteAdminBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteAdminBtn.Image")));
+            this.deleteAdminBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteAdminBtn.Name = "deleteAdminBtn";
+            this.deleteAdminBtn.Size = new System.Drawing.Size(126, 24);
+            this.deleteAdminBtn.Text = "Удалить админа";
+            this.deleteAdminBtn.Click += new System.EventHandler(this.deleteAdminBtn_Click);
+            // 
             // adminPasswordTable
             // 
             this.adminPasswordTable.AllowUserToDeleteRows = false;
@@ -854,35 +899,15 @@ namespace App1.Forms
             this.returnBtn.UseVisualStyleBackColor = true;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
-            // toolStrip6
+            // getEarningBtn
             // 
-            this.toolStrip6.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addAdminBtn,
-            this.deleteAdminBtn});
-            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(877, 27);
-            this.toolStrip6.TabIndex = 4;
-            this.toolStrip6.Text = "toolStrip6";
-            // 
-            // addAdminBtn
-            // 
-            this.addAdminBtn.Image = ((System.Drawing.Image)(resources.GetObject("addAdminBtn.Image")));
-            this.addAdminBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.addAdminBtn.Name = "addAdminBtn";
-            this.addAdminBtn.Size = new System.Drawing.Size(157, 28);
-            this.addAdminBtn.Text = "Добавить админа";
-            this.addAdminBtn.Click += new System.EventHandler(this.addAdminBtn_Click);
-            // 
-            // deleteAdminBtn
-            // 
-            this.deleteAdminBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteAdminBtn.Image")));
-            this.deleteAdminBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteAdminBtn.Name = "deleteAdminBtn";
-            this.deleteAdminBtn.Size = new System.Drawing.Size(146, 24);
-            this.deleteAdminBtn.Text = "Удалить админа";
-            this.deleteAdminBtn.Click += new System.EventHandler(this.deleteAdminBtn_Click);
+            this.getEarningBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.getEarningBtn.Image = ((System.Drawing.Image)(resources.GetObject("getEarningBtn.Image")));
+            this.getEarningBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.getEarningBtn.Name = "getEarningBtn";
+            this.getEarningBtn.Size = new System.Drawing.Size(152, 28);
+            this.getEarningBtn.Text = "Посчитать прибыль";
+            this.getEarningBtn.Click += new System.EventHandler(this.getEarningBtn_Click);
             // 
             // AdminForm
             // 
@@ -928,9 +953,9 @@ namespace App1.Forms
             ((System.ComponentModel.ISupportInitialize)(this.clientPasswordTable)).EndInit();
             this.adminPassword.ResumeLayout(false);
             this.adminPassword.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).EndInit();
             this.toolStrip6.ResumeLayout(false);
             this.toolStrip6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminPasswordTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1013,5 +1038,6 @@ namespace App1.Forms
         private System.Windows.Forms.ToolStrip toolStrip6;
         private System.Windows.Forms.ToolStripButton addAdminBtn;
         private System.Windows.Forms.ToolStripButton deleteAdminBtn;
+        private System.Windows.Forms.ToolStripButton getEarningBtn;
     }
 }
